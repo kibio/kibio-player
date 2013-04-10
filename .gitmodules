@@ -1,0 +1,3 @@
+[submodule "bin/data/DocumentRoot/common"]
+	path = bin/data/DocumentRoot/common
+	url = git@github.com:kibio/kibio-common.git

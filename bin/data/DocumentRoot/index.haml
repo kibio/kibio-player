@@ -1,0 +1,329 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:charset => "utf-8"}/
+    %title kibio
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+    %meta{:content => "", :name => "description"}/
+    %meta{:content => "", :name => "author"}/
+    / Le styles
+    %link{:href => "./css/bootstrap.css", :rel => "stylesheet"}/
+    :css
+      body {
+              padding-top: 60px;
+              padding-bottom: 40px;
+              background-color: #3FA9F5;
+            }
+            .sidebar-nav {
+              padding: 9px 0;
+            }
+            
+            .hero-unit {
+            padding: 12px 24px 12px 24px;
+            margin: 12px;
+            font-size: 18px;
+             font-weight: 200;
+            line-height: 0px;
+            color: inherit;
+            background-color: #0071BC;
+            -webkit-border-radius: 12px;
+            -moz-border-radius: 12px;
+            border-radius: 12px;
+            }
+      
+                <! -- Accordion Styling -- >      
+      
+              .accordion {
+              margin: 0px;
+              padding: 0px 6px 0px 6px;
+            }
+      
+           .accordion-group {
+        margin-bottom: 1px;
+        border: none;
+        padding: 0px;
+        -webkit-border-radius: 4px;
+           -moz-border-radius: 4px;
+                border-radius: 4px;
+      }
+      
+      .accordion-heading {
+        padding: 0px;
+        border: none;
+      
+      }
+      
+      .accordion-heading .accordion-toggle {
+        display: block;
+        padding: 0px;
+        border: none;
+        height: 30px;
+      
+      }
+      
+      
+      .accordion-inner {
+        padding: 0px;
+        border: none;
+      }
+      
+          
+      #mediaLibraryContainer {
+        margin: 0px;
+        padding: 0px;
+        border: none;
+          }
+      
+      #iconOffset{
+        padding-right:24px;
+      }
+      
+      <! -- End Accordion Styling -- >   
+      
+      #videoAccordion{
+        height:0px;
+      }
+          
+            
+            
+        @media (max-width: 980px) {
+              /* Enable use of floated navbar text */
+              .navbar-text .pull-right {
+                float: none;
+                padding-left: 0px;
+                padding-right: 0px;
+              }  
+            }
+            
+      ul#sortablePlaylist, ul#sortableMediaLibrary{
+      list-style-type: none!important;
+      margin: 0px;
+      padding: 0px;
+      border: none;
+      }
+                
+                
+            }
+      
+      <! -- Nav Tabs -->
+      
+            
+          
+      .nav .nav-tabs > li{
+        color:#0071BC;
+        border: none;
+        background-color: #3FA9F5;
+      }
+      
+      .nav.nav-tabs > li > a{
+        border: none;
+        background-color: #3FA9F5;
+      }
+            
+      .nav.nav-tabs > li > a:hover{
+        color:#FFFFFF;
+        border: none;
+        background-color: #3FA9F5;
+      }
+      
+      
+      #tabBoxStyle{
+        height:24px; 
+        min-height:24px; 
+        background-color:#3FA9F5; 
+        margin:0px;
+        padding: 12px;
+      
+        }
+
+  
+  
+        .playlistAccordion {
+          background-color: #3FA9F5;
+        }
+        
+        .ui-icon{
+          float:left;
+          margin-top:12px;
+        }
+
+        #playBar{
+          text-align:center;
+          margin-left:0;
+        }
+        
+        #sortableHeader{
+          font-weight:bold;
+        }
+        .connectedSortable{
+          cursor:pointer;
+        }
+        #playlistHeader{
+          text-align:center;
+        }
+    %link{:href => "./css/bootstrap-responsive.css", :rel => "stylesheet"}/
+    %link{:href => "./css/custom-theme/jquery-ui-1.10.1.custom.css", :rel => "stylesheet"}/
+  %body
+    .navbar.navbar-inverse.navbar-fixed-top
+      .navbar-inner
+        .container-fluid
+          %button.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse", :type => "button"}
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          %a.brand{:href => "/"} Kibio
+          .nav-collapse.collapse
+            %ul.nav
+              %li.active
+                %a{:href => "#"} Player
+              %li
+                %a{:href => "#faq"} FAQ
+              %li
+                %a{:href => "#help"} Help
+          / /.nav-collapse
+    .container-fluid
+      .row-fluid
+        .hero-unit.span8.offset2
+          / Media Library
+          #mediaLibraryAccordion.accordion
+            .accordion-group
+              .accordion-heading
+                %a.accordion-toggle.btn.btn-link.pagination-right{"data-parent" => "#mediaLibraryAccordion", "data-toggle" => "collapse", :href => "#mediaLibraryContainer"}
+                  %i.icon-chevron-up.icon-white
+              #mediaLibraryContainer.accordion-body.collapse.in
+                .accordion-inner
+                  / Sortable List Replaces This Table
+                  %ul#sortableMediaLibrary.span12.connectedSortable
+                    %li.row.ui-state-default#mediaLibraryOne
+                      %span.span1.offset1.fileHealth Error!
+                      %span.span5.file The Neverending Story.mkv
+                      %span.span1 1.9Gb
+                      %span.span1.offset1 02:32:02
+                      %span.span1.offset1 X
+                    %li.row.ui-state-default#mediaLibraryTwo
+                      %span.span1.offset1.fileHealth Error!
+                      %span.span5.file The Neverending Story.mkv
+                      %span.span1 1.9Gb
+                      %span.span1.offset1 02:32:02
+                      %span.span1.offset1 X
+                    %li.row.ui-state-default#mediaLibraryThree
+                      %span.span1.offset1.fileHealth Error!
+                      %span.span5.file The Neverending Story.mkv
+                      %span.span1 1.9Gb
+                      %span.span1.offset1 02:32:02
+                      %span.span1.offset1 X
+                    %li.row.ui-state-default#mediaLibraryFour
+                      %span.span1.offset1.fileHealth Error!
+                      %span.span5.file The Neverending Story.mkv
+                      %span.span1 1.9Gb
+                      %span.span1.offset1 02:32:02
+                      %span.span1.offset1 X
+      .row-fluid
+        .hero-unit.span8.offset2
+          / Start Playlist
+          / Begin accordion for Playlist
+          #playlistAccordion.accordion
+            .accordion-group
+              .accordion-heading
+                %a.accordion-toggle.btn.btn-link.pagination-right{"data-parent" => "#playlistAccordion", "data-toggle" => "collapse", :href => "#videoContainer"}
+                  %i.icon-chevron-up.icon-white
+              / Everything That Collapses in box1
+              #videoContainer.accordion-body.collapse.in
+                .accordion-inner
+                  #videoAccordion.accordion
+                    .accordion-group
+                      .accordion-heading
+                        %a#iconOffset.accordion-toggle.btn.btn-link.pagination-right{"data-parent" => "#videoAccordion", "data-toggle" => "collapse", :href => "#videoBox"}
+                          %i.icon-chevron-up.icon-white
+                      / Everything That Collapses in playbackBox
+                      #videoBox.accordion-body.collapse.in
+                        .accordion-inner
+                          #tabBoxStyle.tabBox.pagination.pagination-right
+                            %ul.nav.nav-tabs
+                              %li.active
+                                %a{"data-toggle" => "tab", :href => "#emptyBox1"}
+                                  %i{:href => "/"} A
+                              %li
+                                %a{"data-toggle" => "tab", :href => "#emptyBox2"}
+                                  %i{:href => "/"} B
+                              %li
+                                %a{"data-toggle" => "tab", :href => "#emptyBox3"}
+                                  %i{:href => "/"} C
+                          / END TABBOX
+                          .tab-content
+                            #emptyBox1.tab-pane.active
+                              #emptyBox1{:style => "height:400px; min-height:400px; background-color:black;"}
+                            #emptyBox2.tab-pane
+                              #emptyBox2{:style => "height:400px; min-height:400px; background-color:red;"}
+                            #emptyBox3.tab-pane
+                              #emptyBox3{:style => "height:400px; min-height:400px; background-color:blue;"}
+                        / END TabContent
+                      / END COLLAPSE ONE
+                    / END ACCORDION GROUP
+                  / END ACCORDION
+                  / END accordion for video playback
+                  #playBar.btn-toolbar.span12
+                    .btn-group.pagination.pagination-center
+                      %a.btn.btn-large.btn-link{:href => "#"}
+                        %i.icon-backward.icon-white
+                      %a.btn.btn-large.btn-link{:href => "#"}
+                        %i.icon-play.icon-white
+                      %a.btn.btn-large.btn-link{:href => "#"}
+                        %i.icon-forward.icon-white
+                  / END Play ToolBar
+                  / sortable Playlist
+                  %ul#sortablePlaylist.span12.connectedSortable
+                    %li.row.ui-state-default#playlistOne
+                      %span.span1.offset1.fileHealth Error!
+                      %span.span5.file The Neverending Story.mkv
+                      %span.span1 1.9Gb
+                      %span.span1.offset1 02:32:02
+                      %span.span1.offset1 X
+                    %li.row.ui-state-default#playlistTwo
+                      %span.span1.offset1.fileHealth Error!
+                      %span.span5.file The Neverending Story.mkv
+                      %span.span1 1.9Gb
+                      %span.span1.offset1 02:32:02
+                      %span.span1.offset1 X
+                    %li.row.ui-state-default#playlistThree
+                      %span.span1.offset1.fileHealth Error!
+                      %span.span5.file The Neverending Story.mkv
+                      %span.span1 1.9Gb
+                      %span.span1.offset1 02:32:02
+                      %span.span1.offset1 X
+                    %li.row.ui-state-default#playlistFour
+                      %span.span1.offset1.fileHealth Error!
+                      %span.span5.file The Neverending Story.mkv
+                      %span.span1 1.9Gb
+                      %span.span1.offset1 02:32:02
+                      %span.span1.offset1 X
+      %footer
+        kibio
+    / Placed at the end of the document so the pages load faster
+    %script{:src => "./js/jquery.js"}
+    %script{:src => "./js/bootstrap-transition.js"}
+    %script{:src => "./js/bootstrap-alert.js"}
+    %script{:src => "./js/bootstrap-modal.js"}
+    %script{:src => "./js/bootstrap-dropdown.js"}
+    %script{:src => "./js/bootstrap-scrollspy.js"}
+    %script{:src => "./js/bootstrap-tab.js"}
+    %script{:src => "./js/bootstrap-tooltip.js"}
+    %script{:src => "./js/bootstrap-popover.js"}
+    %script{:src => "./js/bootstrap-button.js"}
+    %script{:src => "./js/bootstrap-collapse.js"}
+    %script{:src => "./js/bootstrap-carousel.js"}
+    %script{:src => "./js/bootstrap-typeahead.js"}
+    %script{:src => "js/jquery-ui-1.10.1.custom.js"}
+    :javascript
+      $(function() {
+        $( "#sortablePlaylist, #sortableMediaLibrary" ).sortable({
+          connectWith: ".connectedSortable"
+        });
+        $( "#sortablePlaylist" ).sortable({
+          update: function(event, ui) {console.log($( "#sortablePlaylist" ).sortable("toArray")); }
+        });
+        // to be abandoned
+        $( "#sortableMediaLibrary" ).sortable({
+          update: function(event, ui) {console.log($( "#sortableMediaLibrary" ).sortable("toArray")); }
+        });
+      });
