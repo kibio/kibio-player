@@ -7,7 +7,7 @@
     <meta content='' name='description'>
     <meta content='' name='author'>
     <!-- Le styles -->
-    <link href='./css/bootstrap.css' rel='stylesheet'>
+    <link href='common/css/bootstrap.css' rel='stylesheet'>
     <style>
       body {
               padding-top: 60px;
@@ -162,8 +162,8 @@
           text-align:center;
         }
     </style>
-    <link href='./css/bootstrap-responsive.css' rel='stylesheet'>
-    <link href='./css/custom-theme/jquery-ui-1.10.1.custom.css' rel='stylesheet'>
+    <link href='common/css/bootstrap-responsive.css' rel='stylesheet'>
+    <link href='common/css/custom-theme/jquery-ui-1.10.1.custom.css' rel='stylesheet'>
   </head>
   <body>
     <div class='navbar navbar-inverse navbar-fixed-top'>
@@ -362,20 +362,20 @@
       </footer>
     </div>
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src='./js/jquery.js'></script>
-    <script src='./js/bootstrap-transition.js'></script>
-    <script src='./js/bootstrap-alert.js'></script>
-    <script src='./js/bootstrap-modal.js'></script>
-    <script src='./js/bootstrap-dropdown.js'></script>
-    <script src='./js/bootstrap-scrollspy.js'></script>
-    <script src='./js/bootstrap-tab.js'></script>
-    <script src='./js/bootstrap-tooltip.js'></script>
-    <script src='./js/bootstrap-popover.js'></script>
-    <script src='./js/bootstrap-button.js'></script>
-    <script src='./js/bootstrap-collapse.js'></script>
-    <script src='./js/bootstrap-carousel.js'></script>
-    <script src='./js/bootstrap-typeahead.js'></script>
-    <script src='js/jquery-ui-1.10.1.custom.js'></script>
+    <script src='common/js/jquery.js'></script>
+    <script src='common/js/bootstrap-transition.js'></script>
+    <script src='common/js/bootstrap-alert.js'></script>
+    <script src='common/js/bootstrap-modal.js'></script>
+    <script src='common/js/bootstrap-dropdown.js'></script>
+    <script src='common/js/bootstrap-scrollspy.js'></script>
+    <script src='common/js/bootstrap-tab.js'></script>
+    <script src='common/js/bootstrap-tooltip.js'></script>
+    <script src='common/js/bootstrap-popover.js'></script>
+    <script src='common/js/bootstrap-button.js'></script>
+    <script src='common/js/bootstrap-collapse.js'></script>
+    <script src='common/js/bootstrap-carousel.js'></script>
+    <script src='common/js/bootstrap-typeahead.js'></script>
+    <script src='common/js/jquery-ui-1.10.1.custom.js'></script>
     <script>
       $(function() {
         $( "#sortablePlaylist, #sortableMediaLibrary" ).sortable({
@@ -384,6 +384,7 @@
         $( "#sortablePlaylist" ).sortable({
           update: function(event, ui) {console.log($( "#sortablePlaylist" ).sortable("toArray")); }
         });
+        // to be abandoned
         $( "#sortableMediaLibrary" ).sortable({
           update: function(event, ui) {console.log($( "#sortableMediaLibrary" ).sortable("toArray")); }
         });
