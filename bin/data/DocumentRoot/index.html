@@ -376,6 +376,16 @@
     <script src='common/js/bootstrap-carousel.js'></script>
     <script src='common/js/bootstrap-typeahead.js'></script>
     <script src='common/js/jquery-ui-1.10.1.custom.js'></script>
+    <script src='common/js/jquery.mustache.js'></script>
+    <script id='playlistElement' type='text/x-mustache'>
+      <li class='row ui-state-default' id='{{UUID}}'>
+        <span class='span1 offset1 fileHealth'>{{fileHealth}}</span>
+        <span class='span5 file'>{{UUID}} {{name}} / {{URI}}</span>
+        <span class='span1'>{{fileSize}}</span>
+        <span class='span1 offset1'>{{frameCount}} {{duration}}</span>
+        <span class='span1 offset1'>X</span>
+      </li>
+    </script>
     <script>
       $(function() {
         $( "#sortablePlaylist, #sortableMediaLibrary" ).sortable({
@@ -389,6 +399,62 @@
           update: function(event, ui) {console.log($( "#sortableMediaLibrary" ).sortable("toArray")); }
         });
       });
+    </script>
+    <script>
+      function b(a){return a?(a^Math.random()*16>>a/4).toString(16):([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g,b)}
+      
+      console.log(b());
+      
+      function randomStatus(){
+        statuses = [
+          "Ok", 
+          "Seems Ok", 
+          "lol wut", 
+          "Error!"
+          ];
+        
+        return statuses[Math.floor(Math.random()*statuses.length)];
+      }
+      
+      function buildJson(){
+      
+        var  UUID = b(),
+          URI = "FILE URI",
+          name = "USER_ALIAS",
+          type = "ASSET_TYPE",
+          duration = "MS",
+          frameCount = Math.floor(Math.random()*90000).toString(),
+          fileHealth = randomStatus(),
+          fileSize = Math.floor(Math.random()*1200) + " MB",
+          playCount = 0,
+          size = {
+            "width" : "800",
+            "height" : "800"
+          };
+      
+        return {
+          "UUID" : UUID,
+          "URI" : URI,
+          "name" : name,
+          "type" : type,
+          "duration" : duration,
+          "frameCount" : frameCount,
+          "playCount" : playCount,
+          "fileHealth" : fileHealth,
+          "fileSize" : fileSize,
+          "size" : size
+        }
+      
+      }
+      
+      console.log(buildJson());
+      function popPlaylist(data){
+        $("#sortablePlaylist .row, #sortableMediaLibrary .row").each(function(){
+          $(this).html($.mustache($("#playlistElement").html(),buildJson()));
+        });
+      }
+      
+      popPlaylist(buildJson());
     </script>
   </body>
 </html>
