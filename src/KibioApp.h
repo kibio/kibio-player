@@ -50,7 +50,7 @@ public:
     void onFrameSentEvent(ofxWebSocketFrameEventArgs& _evtArgs);
     void onErrorEvent(ofxWebSocketEventArgs& _evtArgs);
     
-    void commandInterpreter(const string& data);
+    void commandInterpreter(ofxWebSocketFrameEventArgs& _evtArgs);
     bool startsWith(const string& target, const string& prefix);
 
     ofxWebSocketServerBasic::Ptr server;
