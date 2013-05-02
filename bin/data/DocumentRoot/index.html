@@ -451,13 +451,13 @@
       }
       // console.log(buildJson());
 
-      function popPlaylist(data){
+      function popPlaylist(){
         $("#sortablePlaylist .row, #sortableMediaLibrary .row").each(function(){
-          $(this).html($.mustache($("#playlistElement").html(), data));
+          $(this).html($.mustache($("#playlistElement").html(), buildJson()));
         });
       }
       
-      popPlaylist(buildJson());
+      popPlaylist();
     </script>
   </body>
 </html>
