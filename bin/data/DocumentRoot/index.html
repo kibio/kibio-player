@@ -376,11 +376,12 @@
     <script src='common/js/bootstrap-carousel.js'></script>
     <script src='common/js/bootstrap-typeahead.js'></script>
     <script src='common/js/jquery-ui-1.10.1.custom.js'></script>
-    <script src='common/js/jquery.mustache.js'></script>
-    <script id='playlistElement' type='text/x-mustache'>
+
+    <script src="common/js/jquery.mustache.js"></script>
+    <script id="playlistElement" type="text/x-mustache">
       <li class='row ui-state-default' id='{{UUID}}'>
         <span class='span1 offset1 fileHealth'>{{fileHealth}}</span>
-        <span class='span5 file'>{{UUID}} {{name}} / {{URI}}</span>
+        <span class='span5 file'><b>{{UUID}}</b> {{name}} / {{URI}}</span>
         <span class='span1'>{{fileSize}}</span>
         <span class='span1 offset1'>{{frameCount}} {{duration}}</span>
         <span class='span1 offset1'>X</span>
@@ -394,30 +395,26 @@
         $( "#sortablePlaylist" ).sortable({
           update: function(event, ui) {console.log($( "#sortablePlaylist" ).sortable("toArray")); }
         });
-        // to be abandoned
         $( "#sortableMediaLibrary" ).sortable({
           update: function(event, ui) {console.log($( "#sortableMediaLibrary" ).sortable("toArray")); }
         });
       });
     </script>
-    <script>
+    <script>  
       function b(a){return a?(a^Math.random()*16>>a/4).toString(16):([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g,b)}
-      
+
       console.log(b());
-      
-      function randomStatus(){
-        statuses = [
-          "Ok", 
-          "Seems Ok", 
-          "lol wut", 
-          "Error!"
+
+        function randomStatus(){
+          statuses = [
+            "Ok", "Seems Ok", "lol wut", "Error!"
           ];
-        
-        return statuses[Math.floor(Math.random()*statuses.length)];
-      }
-      
+
+          return statuses[Math.floor(Math.random()*statuses.length)];
+        }
+
       function buildJson(){
-      
+
         var  UUID = b(),
           URI = "FILE URI",
           name = "USER_ALIAS",
@@ -431,7 +428,8 @@
             "width" : "800",
             "height" : "800"
           };
-      
+
+
         return {
           "UUID" : UUID,
           "URI" : URI,
@@ -444,9 +442,8 @@
           "fileSize" : fileSize,
           "size" : size
         }
-      
+
       }
-      
       console.log(buildJson());
       function popPlaylist(data){
         $("#sortablePlaylist .row, #sortableMediaLibrary .row").each(function(){

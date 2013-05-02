@@ -23,19 +23,19 @@
  ==============================================================================*/
 
 // define a needle in a haystack style array find, implementing indexOf on demand
-// Array.prototype.hasObject = (
-//   !Array.indexOf ? function (o) {
-//     var l = this.length + 1;
-//     while (l -= 1) {
-//         if (this[l - 1] === o) {
-//             return true;
-//         }
-//     }
-//     return false;
-//   } : function (o) {
-//     return (this.indexOf(o) !== -1);
-//   }
-// );
+Array.prototype.hasObject = (
+  !Array.indexOf ? function (o) {
+    var l = this.length + 1;
+    while (l -= 1) {
+        if (this[l - 1] === o) {
+            return true;
+        }
+    }
+    return false;
+  } : function (o) {
+    return (this.indexOf(o) !== -1);
+  }
+);
 
 // var ofxHTTPWebSocketStatus = []
 
@@ -234,6 +234,7 @@ function ofxHTTPWebSocket(_supportedProtocols) {
 
     // lastSendTime = now
     ws.send(val);
+    console.log("HIT: %s", val);
   }
 
   // override these!

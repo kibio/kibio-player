@@ -93,7 +93,7 @@ function onMessage(evt) {
   // var obj = JSON.parse(evt.data);
 
 
-//  var command = parseCommand()
+  //  var command = parseCommand()
 
 
   // if(isCommand(evt.data,VIDEO_PROGRESS)) {
