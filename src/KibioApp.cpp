@@ -127,7 +127,6 @@ void KibioApp::onCloseEvent(ofxWebSocketEventArgs& _evtArgs) {
 //------------------------------------------------------------------------------
 void KibioApp::onFrameReceivedEvent(ofxWebSocketFrameEventArgs& _evtArgs) {
     ofSendMessage("Got frame received event.");
-    cout << "aaaaa---> " << _evtArgs.hasError() << endl;
     if(_evtArgs.frame.isBinary()) {
         cout << "binary frame=" << endl;
     } else {
@@ -157,7 +156,23 @@ void KibioApp::commandInterpreter(const string& data) {
             cout << "command = " << command << endl;
             
             if(startsWith(command,"video-control")) {
-                
+                if(command == "video-control-backward") {
+                    
+                } else if(command == "video-control-play") {
+                    videoPlayer.play();
+                } else if(command == "video-control-pause") {
+                    videoPlayer.setPaused(!videoPlayer.isPaused());
+                } else if(command == "video-control-stop") {
+                    videoPlayer.stop();
+                } else if(command == "video-control-forward") {
+
+                } else if(command == "video-control-position") {
+
+                } else {
+                    cout << "UNKNOWN COMMAND " << command << endl;
+                }
+
+
             } else if(startsWith(command,"video-info")) {
                 
             } else {
