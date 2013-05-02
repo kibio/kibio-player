@@ -1,0 +1,6 @@
+ofxEnablerInterface
+ofxHTTP
+ofxJSON
+ofxOsc
+ofxXmlSettings
+ofxZeroconf
