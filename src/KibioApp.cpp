@@ -167,6 +167,9 @@ void KibioApp::commandInterpreter(const string& data) {
                 } else if(command == "video-control-forward") {
 
                 } else if(command == "video-control-position") {
+                    if(json.isMember("data") && json["data"].isDouble()) {
+                        videoPlayer.setPosition(json["data"].asDouble());
+                    }
 
                 } else {
                     cout << "UNKNOWN COMMAND " << command << endl;
