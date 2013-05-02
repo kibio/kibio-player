@@ -208,34 +208,7 @@
                 <div class='accordion-inner'>
                   <!-- Sortable List Replaces This Table -->
                   <ul class='span12 connectedSortable' id='sortableMediaLibrary'>
-                    <li class='row ui-state-default' id='mediaLibraryOne'>
-                      <span class='span1 offset1 fileHealth'>Error!</span>
-                      <span class='span5 file'>The Neverending Story.mkv</span>
-                      <span class='span1'>1.9Gb</span>
-                      <span class='span1 offset1'>02:32:02</span>
-                      <span class='span1 offset1'>X</span>
-                    </li>
-                    <li class='row ui-state-default' id='mediaLibraryTwo'>
-                      <span class='span1 offset1 fileHealth'>Error!</span>
-                      <span class='span5 file'>The Neverending Story.mkv</span>
-                      <span class='span1'>1.9Gb</span>
-                      <span class='span1 offset1'>02:32:02</span>
-                      <span class='span1 offset1'>X</span>
-                    </li>
-                    <li class='row ui-state-default' id='mediaLibraryThree'>
-                      <span class='span1 offset1 fileHealth'>Error!</span>
-                      <span class='span5 file'>The Neverending Story.mkv</span>
-                      <span class='span1'>1.9Gb</span>
-                      <span class='span1 offset1'>02:32:02</span>
-                      <span class='span1 offset1'>X</span>
-                    </li>
-                    <li class='row ui-state-default' id='mediaLibraryFour'>
-                      <span class='span1 offset1 fileHealth'>Error!</span>
-                      <span class='span5 file'>The Neverending Story.mkv</span>
-                      <span class='span1'>1.9Gb</span>
-                      <span class='span1 offset1'>02:32:02</span>
-                      <span class='span1 offset1'>X</span>
-                    </li>
+                    <!-- filled by kibio-player -->
                   </ul>
                 </div>
               </div>
@@ -271,17 +244,17 @@
                             <ul class='nav nav-tabs'>
                               <li class='active'>
                                 <a data-toggle='tab' href='#emptyBox1'>
-                                  <i href='/'>A</i>
+                                  <i>A</i>
                                 </a>
                               </li>
                               <li>
                                 <a data-toggle='tab' href='#emptyBox2'>
-                                  <i href='/'>B</i>
+                                  <i>B</i>
                                 </a>
                               </li>
                               <li>
                                 <a data-toggle='tab' href='#emptyBox3'>
-                                  <i href='/'>C</i>
+                                  <i>C</i>
                                 </a>
                               </li>
                             </ul>
@@ -309,48 +282,24 @@
                   <!-- END accordion for video playback -->
                   <div class='btn-toolbar span12' id='playBar'>
                     <div class='btn-group pagination pagination-center'>
-                      <a class='btn btn-large btn-link' href='#'>
+                      <span class='btn btn-large btn-link' href='' id="video-control-backward">
                         <i class='icon-backward icon-white'></i>
-                      </a>
-                      <a class='btn btn-large btn-link' href='#'>
+                      </span>
+                      <span class='btn btn-large btn-link' href='' id="video-control-play">
                         <i class='icon-play icon-white'></i>
-                      </a>
-                      <a class='btn btn-large btn-link' href='#'>
+                      </span>
+                      <span class='btn btn-large btn-link' href='' id="video-control-pause">
+                        <i class='icon-pause icon-white'></i>
+                      </span>                      
+                      <span class='btn btn-large btn-link' href='' id="video-control-forward">
                         <i class='icon-forward icon-white'></i>
-                      </a>
+                      </span>
                     </div>
                   </div>
                   <!-- END Play ToolBar -->
                   <!-- sortable Playlist -->
                   <ul class='span12 connectedSortable' id='sortablePlaylist'>
-                    <li class='row ui-state-default' id='playlistOne'>
-                      <span class='span1 offset1 fileHealth'>Error!</span>
-                      <span class='span5 file'>The Neverending Story.mkv</span>
-                      <span class='span1'>1.9Gb</span>
-                      <span class='span1 offset1'>02:32:02</span>
-                      <span class='span1 offset1'>X</span>
-                    </li>
-                    <li class='row ui-state-default' id='playlistTwo'>
-                      <span class='span1 offset1 fileHealth'>Error!</span>
-                      <span class='span5 file'>The Neverending Story.mkv</span>
-                      <span class='span1'>1.9Gb</span>
-                      <span class='span1 offset1'>02:32:02</span>
-                      <span class='span1 offset1'>X</span>
-                    </li>
-                    <li class='row ui-state-default' id='playlistThree'>
-                      <span class='span1 offset1 fileHealth'>Error!</span>
-                      <span class='span5 file'>The Neverending Story.mkv</span>
-                      <span class='span1'>1.9Gb</span>
-                      <span class='span1 offset1'>02:32:02</span>
-                      <span class='span1 offset1'>X</span>
-                    </li>
-                    <li class='row ui-state-default' id='playlistFour'>
-                      <span class='span1 offset1 fileHealth'>Error!</span>
-                      <span class='span5 file'>The Neverending Story.mkv</span>
-                      <span class='span1'>1.9Gb</span>
-                      <span class='span1 offset1'>02:32:02</span>
-                      <span class='span1 offset1'>X</span>
-                    </li>
+                    <!-- filled by kibio-player -->
                   </ul>
                 </div>
               </div>
@@ -377,16 +326,24 @@
     <script src='common/js/bootstrap-carousel.js'></script>
     <script src='common/js/bootstrap-typeahead.js'></script>
     <script src='common/js/jquery-ui-1.10.1.custom.js'></script>
-    <script src='common/js/jquery.mustache.js'></script>
-    <script id='playlistElement' type='text/x-mustache'>
+
+    <script src="common/js/jquery.mustache.js"></script>
+
+    <script src="js/ofxHTTPWebSocket.js"></script> <!-- our helper js because it makes life easier -->
+    <script src="js/main.js"></script>             <!-- our main js file because we need it to define our program -->
+
+
+    <script id="playlistElement" type="text/x-mustache">
       <li class='row ui-state-default' id='{{UUID}}'>
         <span class='span1 offset1 fileHealth'>{{fileHealth}}</span>
-        <span class='span5 file'>{{UUID}} {{name}} / {{URI}}</span>
+        <span class='span5 file'><b>{{UUID}}</b> {{name}} / {{URI}}</span>
         <span class='span1'>{{fileSize}}</span>
-        <span class='span1 offset1'>{{frameCount}} {{duration}}</span>
-        <span class='span1 offset1'>X</span>
+        <span class='span1'>{{numFrames}}</span>
+        <span class='span1'>{{duration}}MS</span>
+        <span class='span1 offset1 delete'>X</span>
       </li>
     </script>
+    <!-- sortable init js -->
     <script>
       $(function() {
         $( "#sortablePlaylist, #sortableMediaLibrary" ).sortable({
@@ -395,30 +352,29 @@
         $( "#sortablePlaylist" ).sortable({
           update: function(event, ui) {console.log($( "#sortablePlaylist" ).sortable("toArray")); }
         });
-        // to be abandoned
         $( "#sortableMediaLibrary" ).sortable({
           update: function(event, ui) {console.log($( "#sortableMediaLibrary" ).sortable("toArray")); }
         });
       });
     </script>
-    <script>
+    <script> 
+      // generate UUID 
       function b(a){return a?(a^Math.random()*16>>a/4).toString(16):([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g,b)}
-      
-      console.log(b());
-      
-      function randomStatus(){
-        statuses = [
-          "Ok", 
-          "Seems Ok", 
-          "lol wut", 
-          "Error!"
+
+      // console.log(b());
+
+        function randomStatus(){
+          statuses = [
+            "Ok", "Seems Ok", "lol wut", "Error!"
           ];
-        
-        return statuses[Math.floor(Math.random()*statuses.length)];
-      }
-      
+
+          return statuses[Math.floor(Math.random()*statuses.length)];
+        }
+
       function buildJson(){
-      
+
+
+        // USER_ALIAS = name given to file by user
         var  UUID = b(),
           URI = "FILE URI",
           name = "USER_ALIAS",
@@ -432,7 +388,8 @@
             "width" : "800",
             "height" : "800"
           };
-      
+
+
         return {
           "UUID" : UUID,
           "URI" : URI,
@@ -445,17 +402,17 @@
           "fileSize" : fileSize,
           "size" : size
         }
-      
+
       }
+      // console.log(buildJson());
+
+      // function popPlaylist(){
+      //   $("#sortablePlaylist .row, #sortableMediaLibrary .row").each(function(){
+      //     $(this).html($.mustache($("#playlistElement").html(), ));
+      //   });
+      // }
       
-      console.log(buildJson());
-      function popPlaylist(data){
-        $("#sortablePlaylist .row, #sortableMediaLibrary .row").each(function(){
-          $(this).html($.mustache($("#playlistElement").html(),buildJson()));
-        });
-      }
-      
-      popPlaylist(buildJson());
+      // popPlaylist();
     </script>
   </body>
 </html>
