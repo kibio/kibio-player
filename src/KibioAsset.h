@@ -3,14 +3,17 @@
 #include <string>
 #include <vector>
 
+#include "Poco/URI.h"
 #include "Poco/UUID.h"
 #include "Poco/UUIDGenerator.h"
 
 #include "ofPixels.h"
+#include "ofxJSONElement.h"
 
 using std::string;
 using std::vector;
 
+using Poco::URI;
 using Poco::UUID;
 using Poco::UUIDGenerator;
 
@@ -27,6 +30,8 @@ public:
     virtual ~KibioAsset();
     
     string getFilename() const;
+    URI    getURI() const;
+
     Type getType() const;
     
     UUID getUUID() const;
@@ -36,6 +41,32 @@ public:
     
     void setNumFrames(unsigned long long _numFrames);
     unsigned long long getNumFrames() const;
+
+    Json::Value getJSON() const {
+        Json::Value json;
+
+        json["UUID"] = getUUID().toString();
+        json["URI"]  = getURI().toString();
+
+        json["duration"] = getDuration();
+        json["numFrames"] = getNumFrames();
+
+        if(getType() == VIDEO) {
+            json["type"] = "VIDEO";
+        } else if(getType() == SOUND) {
+            json["type"] = "SOUND";
+        } else {
+            json["type"] = "UNKNOWN";
+        }
+
+        json["playCount"] = (int)playCount;
+
+        json["size"]["width"] = width;
+        json["size"]["height"] = height;
+
+        return json;
+    }
+
 
 //    void addToPlaylist(KibioPlaylistItem* _playlistItem);
 //    void removeFromPlaylist(KibioPlaylistItem* _playlistItem);

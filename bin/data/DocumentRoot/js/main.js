@@ -83,12 +83,20 @@ function prepareMessage(command,data) {
     return JSON.stringify({ command: command, data: txt });
 }
 
-function onOpen() {
+function onOpen(ws) {
   ofLogNotice("Connection Opened.");
+
+  console.log(ws);
+
+    // request the file list
+  ws.target.send(prepareMessage("video-info-list"));
+
 }
 
 function onMessage(evt) {
   var data = evt.data;
+
+  console.log(data);
 
   // var obj = JSON.parse(evt.data);
 
@@ -109,7 +117,7 @@ function onMessage(evt) {
   // }
 
 
-  $("#number").text(evt.data);
+  // $("#number").text(evt.data);
 }
 
 function onClose() {
@@ -167,5 +175,7 @@ $(document).ready( function() {
 
   // connect to the port
   ws.connect();
+
+
 
 });

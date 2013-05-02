@@ -13,6 +13,12 @@ duration(0),
 numFrames(0)
 {
     uuid = UUID(UUIDGenerator::defaultGenerator().createFromName(UUID::uri(), filename));
+
+    width = (int)ofRandom(320,640);
+    height = (int)ofRandom(320,640);
+    duration = (int)ofRandom(320,32000);
+    numFrames = (int)ofRandom(10,1000);
+    playCount = (int)ofRandom(10,1000);
 }
 
 //------------------------------------------------------------------------------
@@ -31,6 +37,10 @@ KibioAsset::Type KibioAsset::getType() const {
 //------------------------------------------------------------------------------
 UUID KibioAsset::getUUID() const {
     return uuid;
+}
+
+URI KibioAsset::getURI() const {
+    return URI(getFilename());
 }
 
 //------------------------------------------------------------------------------

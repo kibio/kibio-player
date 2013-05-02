@@ -52,6 +52,7 @@ void KibioApp::setup() {
     icons["step_forward"] = ofPtr<ofImage>(new ofImage("icons/glyphicons_178_step_forward.png"));
  
     fileManager.setup();
+
 }
 
 //------------------------------------------------------------------------------
@@ -130,7 +131,7 @@ void KibioApp::onFrameReceivedEvent(ofxWebSocketFrameEventArgs& _evtArgs) {
     if(_evtArgs.frame.isBinary()) {
         cout << "binary frame=" << endl;
     } else {
-        commandInterpreter(_evtArgs.frame.getText());
+        commandInterpreter(_evtArgs);
     }
     
 }
@@ -146,7 +147,10 @@ void KibioApp::onErrorEvent(ofxWebSocketEventArgs& _evtArgs) {
 }
 
 //------------------------------------------------------------------------------
-void KibioApp::commandInterpreter(const string& data) {
+void KibioApp::commandInterpreter(ofxWebSocketFrameEventArgs& _evtArgs) {
+
+    string data = _evtArgs.getFrameRef().getText();
+
     ofxJSONElement json;
     if(json.parse(data)) {
         if(json.isMember("command") && json["command"].isString()) {
@@ -170,14 +174,21 @@ void KibioApp::commandInterpreter(const string& data) {
                     if(json.isMember("data") && json["data"].isDouble()) {
                         videoPlayer.setPosition(json["data"].asDouble());
                     }
-
                 } else {
                     cout << "UNKNOWN COMMAND " << command << endl;
                 }
-
-
             } else if(startsWith(command,"video-info")) {
-                
+                if(command == "video-info-list") {
+
+                    Json::Value value;
+                    value["assets"] = fileManager.getJSON();
+
+                    ofxWebSocketFrame frame(value.toStyledString());
+
+                    server->sendFrame(&_evtArgs.getConnectionRef(), frame);
+                }
+
+
             } else {
                 
             }
