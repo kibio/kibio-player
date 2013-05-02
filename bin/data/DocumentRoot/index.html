@@ -271,17 +271,17 @@
                             <ul class='nav nav-tabs'>
                               <li class='active'>
                                 <a data-toggle='tab' href='#emptyBox1'>
-                                  <i href='/'>A</i>
+                                  <i>A</i>
                                 </a>
                               </li>
                               <li>
                                 <a data-toggle='tab' href='#emptyBox2'>
-                                  <i href='/'>B</i>
+                                  <i>B</i>
                                 </a>
                               </li>
                               <li>
                                 <a data-toggle='tab' href='#emptyBox3'>
-                                  <i href='/'>C</i>
+                                  <i>C</i>
                                 </a>
                               </li>
                             </ul>
@@ -309,15 +309,18 @@
                   <!-- END accordion for video playback -->
                   <div class='btn-toolbar span12' id='playBar'>
                     <div class='btn-group pagination pagination-center'>
-                      <a class='btn btn-large btn-link' href='#'>
+                      <span class='btn btn-large btn-link' href='' id="video-control-backward">
                         <i class='icon-backward icon-white'></i>
-                      </a>
-                      <a class='btn btn-large btn-link' href='#'>
+                      </span>
+                      <span class='btn btn-large btn-link' href='' id="video-control-play">
                         <i class='icon-play icon-white'></i>
-                      </a>
-                      <a class='btn btn-large btn-link' href='#'>
+                      </span>
+                      <span class='btn btn-large btn-link' href='' id="video-control-pause">
+                        <i class='icon-pause icon-white'></i>
+                      </span>                      
+                      <span class='btn btn-large btn-link' href='' id="video-control-forward">
                         <i class='icon-forward icon-white'></i>
-                      </a>
+                      </span>
                     </div>
                   </div>
                   <!-- END Play ToolBar -->
@@ -379,6 +382,11 @@
     <script src='common/js/jquery-ui-1.10.1.custom.js'></script>
 
     <script src="common/js/jquery.mustache.js"></script>
+
+    <script src="js/ofxHTTPWebSocket.js"></script> <!-- our helper js because it makes life easier -->
+    <script src="js/main.js"></script>             <!-- our main js file because we need it to define our program -->
+
+
     <script id="playlistElement" type="text/x-mustache">
       <li class='row ui-state-default' id='{{UUID}}'>
         <span class='span1 offset1 fileHealth'>{{fileHealth}}</span>
