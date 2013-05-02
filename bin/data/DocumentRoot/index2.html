@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>ofxHTTPWebSockets Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="./common/css/bootstrap.min.css" rel="stylesheet" media="screen">
+  </head>
+  <body>
+    <div class="container">
+      <div class="navbar">
+        <div class="navbar-inner">
+          <a class="brand" href="#">ofxWebSocketVideoPlayer Demo</a>
+
+          <div class="btn-group pull-right">
+            <a class="btn btn-primary" href="#"><i id="updater" title="yo yo yo" class="icon-exclamation-sign icon-white"></i> WebSocket</a>
+<!--
+icon-refresh
+icon-ok
+icon-remove
+icon-warning-sign
+icon-ok-sign
+icon-exclamation-sign
+-->
+
+            <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#"><i class="icon-refresh"></i> Reconnect</a></li>
+              <li><a href="#"><i class="icon-remove"></i> Disconnect</a></li>
+            </ul>
+          </div>
+
+
+        </div>
+
+        <div class="row">
+          <div class="span4 offset4 text-center">
+            <h3>Currently Playing: <span id="video-info-title" style="font-style:italic">None</span></h3>
+            <canvas id="myCanvas" width="320" height="240" style="border:1px solid #d3d3d3;">Your browser does not support the HTML5 canvas tag.</canvas>
+            <div class="progress progress-striped">
+              <div id="video-control-position" class="bar" style="width: 99%;">
+                <span id="video-info-speed">Speed: 0.2</span>
+              </div>
+            </div>
+            <!--
+                    <a class="btn btn-large" href="#"><i class="icon-step-backward"></i></a>
+                    <a class="btn btn-large" href="#"><i class="icon-fast-backward"></i></a>
+             -->    
+                    <a class="btn btn-large" href="#"><i id="video-control-backward" class="icon-backward"></i></a>
+                    <a class="btn btn-large" href="#"><i id="video-control-play"     class="icon-play"    ></i></a>
+                    <a class="btn btn-large" href="#"><i id="video-control-pause"    class="icon-pause"   ></i></a>
+                    <a class="btn btn-large" href="#"><i id="video-control-stop"     class="icon-stop"    ></i></a>
+                    <a class="btn btn-large" href="#"><i id="video-control-forward"  class="icon-forward" ></i></a>
+            <!--         
+                    <a class="btn btn-large" href="#"><i class="icon-fast-forward"></i></a>
+                    <a class="btn btn-large" href="#"><i class="icon-step-forward"></i></a>
+             -->
+
+          </div>
+        </div>
+    </div>
+    <script src="./common/js/jquery.js"></script> <!-- jQuery, because it's awesome. -->
+    <script src="./common/js/bootstrap.min.js"></script>    <!-- Twitter Bootstrap because it's awesome. -->
+    <script src="js/ofxHTTPWebSocket.js"></script> <!-- our helper js because it makes life easier -->
+    <script src="js/main.js"></script>             <!-- our main js file because we need it to define our program -->
+    </div>
+  </body>
+</html>
+
+
