@@ -234,6 +234,7 @@ function ofxHTTPWebSocket(_supportedProtocols) {
 
     // lastSendTime = now
     ws.send(val);
+    console.log("HIT: %s", val);
   }
 
   // override these!
