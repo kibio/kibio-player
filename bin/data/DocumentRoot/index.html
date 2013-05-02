@@ -388,6 +388,7 @@
         <span class='span1 offset1'>X</span>
       </li>
     </script>
+    <!-- sortable init js -->
     <script>
       $(function() {
         $( "#sortablePlaylist, #sortableMediaLibrary" ).sortable({
@@ -401,10 +402,11 @@
         });
       });
     </script>
-    <script>  
+    <script> 
+      // generate UUID 
       function b(a){return a?(a^Math.random()*16>>a/4).toString(16):([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g,b)}
 
-      console.log(b());
+      // console.log(b());
 
         function randomStatus(){
           statuses = [
@@ -416,6 +418,8 @@
 
       function buildJson(){
 
+
+        // USER_ALIAS = name given to file by user
         var  UUID = b(),
           URI = "FILE URI",
           name = "USER_ALIAS",
@@ -445,10 +449,11 @@
         }
 
       }
-      console.log(buildJson());
+      // console.log(buildJson());
+
       function popPlaylist(data){
         $("#sortablePlaylist .row, #sortableMediaLibrary .row").each(function(){
-          $(this).html($.mustache($("#playlistElement").html(),buildJson()));
+          $(this).html($.mustache($("#playlistElement").html(), data));
         });
       }
       
