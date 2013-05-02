@@ -91,12 +91,24 @@ function onOpen(ws) {
     // request the file list
   ws.target.send(prepareMessage("video-info-list"));
 
+
 }
 
 function onMessage(evt) {
   var data = evt.data;
 
   console.log(data);
+  rawJSON = $.parseJSON(data);
+  // check if it's assets
+  // if yes, then iterate through array items (each on is an "asset")
+  if (rawJSON.assets){
+
+    $(rawJSON.assets).each(function(index){
+      $("#sortableMediaLibrary").append($.mustache($("#playlistElement").html(), rawJSON.assets[index]));
+    });
+
+  }
+
 
   // var obj = JSON.parse(evt.data);
 

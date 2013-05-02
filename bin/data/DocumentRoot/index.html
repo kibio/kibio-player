@@ -208,34 +208,7 @@
                 <div class='accordion-inner'>
                   <!-- Sortable List Replaces This Table -->
                   <ul class='span12 connectedSortable' id='sortableMediaLibrary'>
-                    <li class='row ui-state-default' id='mediaLibraryOne'>
-                      <span class='span1 offset1 fileHealth'>Error!</span>
-                      <span class='span5 file'>The Neverending Story.mkv</span>
-                      <span class='span1'>1.9Gb</span>
-                      <span class='span1 offset1'>02:32:02</span>
-                      <span class='span1 offset1'>X</span>
-                    </li>
-                    <li class='row ui-state-default' id='mediaLibraryTwo'>
-                      <span class='span1 offset1 fileHealth'>Error!</span>
-                      <span class='span5 file'>The Neverending Story.mkv</span>
-                      <span class='span1'>1.9Gb</span>
-                      <span class='span1 offset1'>02:32:02</span>
-                      <span class='span1 offset1'>X</span>
-                    </li>
-                    <li class='row ui-state-default' id='mediaLibraryThree'>
-                      <span class='span1 offset1 fileHealth'>Error!</span>
-                      <span class='span5 file'>The Neverending Story.mkv</span>
-                      <span class='span1'>1.9Gb</span>
-                      <span class='span1 offset1'>02:32:02</span>
-                      <span class='span1 offset1'>X</span>
-                    </li>
-                    <li class='row ui-state-default' id='mediaLibraryFour'>
-                      <span class='span1 offset1 fileHealth'>Error!</span>
-                      <span class='span5 file'>The Neverending Story.mkv</span>
-                      <span class='span1'>1.9Gb</span>
-                      <span class='span1 offset1'>02:32:02</span>
-                      <span class='span1 offset1'>X</span>
-                    </li>
+                    <!-- filled by kibio-player -->
                   </ul>
                 </div>
               </div>
@@ -326,34 +299,7 @@
                   <!-- END Play ToolBar -->
                   <!-- sortable Playlist -->
                   <ul class='span12 connectedSortable' id='sortablePlaylist'>
-                    <li class='row ui-state-default' id='playlistOne'>
-                      <span class='span1 offset1 fileHealth'>Error!</span>
-                      <span class='span5 file'>The Neverending Story.mkv</span>
-                      <span class='span1'>1.9Gb</span>
-                      <span class='span1 offset1'>02:32:02</span>
-                      <span class='span1 offset1'>X</span>
-                    </li>
-                    <li class='row ui-state-default' id='playlistTwo'>
-                      <span class='span1 offset1 fileHealth'>Error!</span>
-                      <span class='span5 file'>The Neverending Story.mkv</span>
-                      <span class='span1'>1.9Gb</span>
-                      <span class='span1 offset1'>02:32:02</span>
-                      <span class='span1 offset1'>X</span>
-                    </li>
-                    <li class='row ui-state-default' id='playlistThree'>
-                      <span class='span1 offset1 fileHealth'>Error!</span>
-                      <span class='span5 file'>The Neverending Story.mkv</span>
-                      <span class='span1'>1.9Gb</span>
-                      <span class='span1 offset1'>02:32:02</span>
-                      <span class='span1 offset1'>X</span>
-                    </li>
-                    <li class='row ui-state-default' id='playlistFour'>
-                      <span class='span1 offset1 fileHealth'>Error!</span>
-                      <span class='span5 file'>The Neverending Story.mkv</span>
-                      <span class='span1'>1.9Gb</span>
-                      <span class='span1 offset1'>02:32:02</span>
-                      <span class='span1 offset1'>X</span>
-                    </li>
+                    <!-- filled by kibio-player -->
                   </ul>
                 </div>
               </div>
@@ -392,8 +338,9 @@
         <span class='span1 offset1 fileHealth'>{{fileHealth}}</span>
         <span class='span5 file'><b>{{UUID}}</b> {{name}} / {{URI}}</span>
         <span class='span1'>{{fileSize}}</span>
-        <span class='span1 offset1'>{{frameCount}} {{duration}}</span>
-        <span class='span1 offset1'>X</span>
+        <span class='span1'>{{numFrames}}</span>
+        <span class='span1'>{{duration}}MS</span>
+        <span class='span1 offset1 delete'>X</span>
       </li>
     </script>
     <!-- sortable init js -->
@@ -459,13 +406,13 @@
       }
       // console.log(buildJson());
 
-      function popPlaylist(){
-        $("#sortablePlaylist .row, #sortableMediaLibrary .row").each(function(){
-          $(this).html($.mustache($("#playlistElement").html(), buildJson()));
-        });
-      }
+      // function popPlaylist(){
+      //   $("#sortablePlaylist .row, #sortableMediaLibrary .row").each(function(){
+      //     $(this).html($.mustache($("#playlistElement").html(), ));
+      //   });
+      // }
       
-      popPlaylist();
+      // popPlaylist();
     </script>
   </body>
 </html>
