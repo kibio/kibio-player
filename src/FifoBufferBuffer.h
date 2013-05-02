@@ -1,14 +1,11 @@
-//
-//  FifoBufferBuffer.h
-//  player
-//
-//  Created by Christopher P. Baker on 4/9/13.
-//
-//
+#pragma once
 
-#ifndef __player__FifoBufferBuffer__
-#define __player__FifoBufferBuffer__
+#include "FIFOBuffer.h"
 
-#include <iostream>
-
-#endif /* defined(__player__FifoBufferBuffer__) */
+class ofxFIFO {
+public:
+    
+    
+    
+    
+};
