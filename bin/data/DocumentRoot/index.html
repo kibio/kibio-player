@@ -135,9 +135,7 @@
         padding: 12px;
       
         }
-      
-      
-      
+
         .playlistAccordion {
           background-color: #3FA9F5;
         }
@@ -155,9 +153,11 @@
         #sortableHeader{
           font-weight:bold;
         }
-        .connectedSortable{
+/*        .connectedSortable{
           cursor:pointer;
         }
+// taken care of by passed params
+*/ 
         #playlistHeader{
           text-align:center;
         }
@@ -207,9 +207,11 @@
               <div class='accordion-body collapse in' id='mediaLibraryContainer'>
                 <div class='accordion-inner'>
                   <!-- Sortable List Replaces This Table -->
+                  
                   <ul class='span12 connectedSortable' id='sortableMediaLibrary'>
                     <!-- filled by kibio-player -->
                   </ul>
+                
                 </div>
               </div>
             </div>
@@ -334,13 +336,13 @@
 
 
     <script id="playlistElement" type="text/x-mustache">
-      <li class='row ui-state-default' id='{{UUID}}'>
+      <li class='row playlist ui-state-default' id='{{UUID}}'>
         <span class='span1 offset1 fileHealth'>{{fileHealth}}</span>
         <span class='span5 file'><b>{{UUID}}</b> {{name}} / {{URI}}</span>
         <span class='span1'>{{fileSize}}</span>
         <span class='span1'>{{numFrames}}</span>
         <span class='span1'>{{duration}}MS</span>
-        <span class='span1 offset1 delete'>X</span>
+        <span class='span1 offset1 delete'><a href="#{{UUID}}-ADD"><i class="icon-plus"></i></a></span>
       </li>
     </script>
     <!-- sortable init js -->
@@ -352,9 +354,14 @@
         $( "#sortablePlaylist" ).sortable({
           update: function(event, ui) {console.log($( "#sortablePlaylist" ).sortable("toArray")); }
         });
+
+        // media library can stay away from being a sortable
         $( "#sortableMediaLibrary" ).sortable({
-          update: function(event, ui) {console.log($( "#sortableMediaLibrary" ).sortable("toArray")); }
+          update: function(event, ui) {console.log($( "#sortableMediaLibrary" ).sortable("toArray")); },
+          axis: "y",
+          cursor: "move"
         });
+
       });
     </script>
     <script> 

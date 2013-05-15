@@ -103,9 +103,7 @@ function onMessage(evt) {
   // if yes, then iterate through array items (each on is an "asset")
   if (rawJSON.assets){
 
-    $(rawJSON.assets).each(function(index){
-      $("#sortableMediaLibrary").append($.mustache($("#playlistElement").html(), rawJSON.assets[index]));
-    });
+    drawEntries(rawJSON);
 
   }
 
@@ -132,12 +130,33 @@ function onMessage(evt) {
   // $("#number").text(evt.data);
 }
 
+function drawEntries(rawJSON){
+  $(rawJSON.assets).each(function(index){
+    $("#sortableMediaLibrary").append($.mustache($("#playlistElement").html(), rawJSON.assets[index]));
+  });
+  // update the interactive portions of the site every time there is a change to the playlist
+  updateInteractions();
+}
+
 function onClose() {
   ofLogNotice("Connection closed.");
 }
 
 function onError() {
   ofLogNotice("Connection Error.");
+}
+
+function updateInteractions(){
+
+  // add hover-state to list elements
+  $("li.playlist").hover(
+    function() {
+      $(this).removeClass('ui-state-default');
+      $(this).addClass('ui-state-hover');
+    }, function() {
+      $(this).removeClass('ui-state-hover');
+      $(this).addClass('ui-state-default');
+  });
 }
 
 
