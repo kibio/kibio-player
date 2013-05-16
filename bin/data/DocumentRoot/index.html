@@ -8,6 +8,7 @@
     <meta content='' name='author'>
     <!-- Le styles -->
     <link href='common/css/bootstrap.css' rel='stylesheet'>
+    <link rel="stylesheet" href="common/css/font-awesome.min.css">
     <style>
       body {
               padding-top: 60px;
@@ -48,7 +49,7 @@
       }
       
       .accordion-heading {
-        padding: 0px;
+        padding-bottom: 0px;
         border: none;
       
       }
@@ -149,6 +150,16 @@
           text-align:center;
           margin-left:0;
         }
+        #playBar a{
+          background: #3FA9F5;
+          border:1px solid #3FA9F5;
+          color:white;
+          text-shadow:rgba(5,5,5, 0.5);
+        }
+        #playBar a:hover{
+          border:1px solid white;
+
+        }
         
         #sortableHeader{
           font-weight:bold;
@@ -161,9 +172,16 @@
         #playlistHeader{
           text-align:center;
         }
+
+        .fileExtension{
+          text-transform: uppercase;
+        }
+        .sortablePlaceholder{
+          background-color: rgb(127,127,127);
+        }
     </style>
     <link href='common/css/bootstrap-responsive.css' rel='stylesheet'>
-    <link href='common/css/custom-theme/jquery-ui-1.10.1.custom.css' rel='stylesheet'>
+    <link href='common/css/custom-theme/jquery-ui-1.10.3.custom.css' rel='stylesheet'>
     <link rel="icon" href="./common/img/favicon.ico" type="image/x-icon">
   </head>
   <body>
@@ -205,13 +223,9 @@
                 </a>
               </div>
               <div class='accordion-body collapse in' id='mediaLibraryContainer'>
-                <div class='accordion-inner'>
-                  <!-- Sortable List Replaces This Table -->
-                  
-                  <ul class='span12 connectedSortable' id='sortableMediaLibrary'>
-                    <!-- filled by kibio-player -->
-                  </ul>
-                
+                <div class='accordion-inner'>                  
+                  <div id="mediaLibrary">
+                  </div>
                 </div>
               </div>
             </div>
@@ -282,20 +296,20 @@
                   </div>
                   <!-- END ACCORDION -->
                   <!-- END accordion for video playback -->
-                  <div class='btn-toolbar span12' id='playBar'>
+                  <div class='span12' id='playBar'>
                     <div class='btn-group pagination pagination-center'>
-                      <span class='btn btn-large btn-link' href='' id="video-control-backward">
-                        <i class='icon-backward icon-white'></i>
-                      </span>
-                      <span class='btn btn-large btn-link' href='' id="video-control-play">
-                        <i class='icon-play icon-white'></i>
-                      </span>
-                      <span class='btn btn-large btn-link' href='' id="video-control-pause">
-                        <i class='icon-pause icon-white'></i>
-                      </span>                      
-                      <span class='btn btn-large btn-link' href='' id="video-control-forward">
-                        <i class='icon-forward icon-white'></i>
-                      </span>
+                      <a class='btn' href='' id="video-control-backward">
+                        <i class='icon-backward icon-2x'></i>
+                      </a>
+                      <a class='btn' href='' id="video-control-play">
+                        <i class='icon-play icon-2x'></i>
+                      </a>
+                      <a class='btn' href='' id="video-control-pause">
+                        <i class='icon-pause icon-2x'></i>
+                      </a>                      
+                      <a class='btn' href='' id="video-control-forward">
+                        <i class='icon-forward icon-2x'></i>
+                      </a>
                     </div>
                   </div>
                   <!-- END Play ToolBar -->
@@ -309,9 +323,11 @@
           </div>
         </div>
       </div>
+      
       <footer>
-        kibio
+      <!-- potential future use? -->
       </footer>
+    
     </div>
     <!-- Placed at the end of the document so the pages load faster -->
     <script src='common/js/jquery.js'></script>
@@ -335,91 +351,71 @@
     <script src="js/main.js"></script>             <!-- our main js file because we need it to define our program -->
 
 
+
     <script id="playlistElement" type="text/x-mustache">
-      <li class='row playlist ui-state-default' id='{{UUID}}'>
-        <span class='span1 offset1 fileHealth'>{{fileHealth}}</span>
-        <span class='span5 file'><b>{{UUID}}</b> {{name}} / {{URI}}</span>
-        <span class='span1'>{{fileSize}}</span>
-        <span class='span1'>{{numFrames}}</span>
-        <span class='span1'>{{duration}}MS</span>
-        <span class='span1 offset1 delete'><a href="#{{UUID}}-ADD"><i class="icon-plus"></i></a></span>
+      <li class='row-fluid ui-state-default playlistItem' id='playlist-{{UUID}}'>
+        <span class='span1'>
+          <span class="badge badge-info fileExtension">{{fileExtension}}</span>
+        </span>
+        <span class='offset1 span4'>{{fileName}}</span>
+        <span class='offset1 span1'>MASK</span>
+        <span class='span1'>WARP</span>
+        <span class='span1'>TIME</span>
+        <span class='span1 offset1'><a onclick="$('#playlist-{{UUID}}').remove();"><i class="icon-remove icon-large"></i></a></span>
       </li>
+    </script>
+    <script type="text/x-mustache" id="bootstrapPlaylist">
+      <div id="mediaLibrary-{{UUID}}" class="row-fluid">
+        <div class="span1">
+          {{#fileHealth}}
+            {{> fileHealthIndicator}}
+          {{/fileHealth}}
+        </div>
+        <div class="offset1 span4">
+          {{fileName}}
+        </div>
+        <div class="offset1 span1">
+          {{type}}
+        </div>
+        <div class="span1">
+          {{fileSize}}
+        </div>
+        <div class="span1">
+          {{duration}}
+        </div>
+        <div class="span1 offset1">
+          <a onclick="addToPlaylist({ UUID: '{{UUID}}', fileName: '{{fileName}}', fileSize: '{{fileSize}}', numFrames: '{{numFrames}}', duration: '{{duration}}', fileExtension: '{{fileExtension}}' })">
+            <i class="icon-plus icon-large"></i>
+          </a>
+        </div>
+      </div>
+    </script>
+
+    <script type="text/template" id="fileHealthIndicator">
+      {{#fileOk}}
+        <span class="badge badge-success">
+          <i class="icon-ok icon-large" title="Okay"></i>
+        </span>
+      {{/fileOk}}
+      {{#fileNotOk}}
+        <span class="badge badge-important">
+          <i class="icon-frown icon-large" title="Not OK"></i>
+        </span>
+      {{/fileNotOk}}
     </script>
     <!-- sortable init js -->
     <script>
       $(function() {
-        $( "#sortablePlaylist, #sortableMediaLibrary" ).sortable({
-          connectWith: ".connectedSortable"
-        });
-        $( "#sortablePlaylist" ).sortable({
-          update: function(event, ui) {console.log($( "#sortablePlaylist" ).sortable("toArray")); }
-        });
-
         // media library can stay away from being a sortable
-        $( "#sortableMediaLibrary" ).sortable({
+        $( "#sortablePlaylist" ).sortable({
           update: function(event, ui) {console.log($( "#sortableMediaLibrary" ).sortable("toArray")); },
           axis: "y",
+          placeholder: "sortablePlaceholder",
+          forcePlaceholderSize: true,
           cursor: "move"
         });
 
       });
-    </script>
-    <script> 
-      // generate UUID 
-      function b(a){return a?(a^Math.random()*16>>a/4).toString(16):([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g,b)}
-
-      // console.log(b());
-
-        function randomStatus(){
-          statuses = [
-            "Ok", "Seems Ok", "lol wut", "Error!"
-          ];
-
-          return statuses[Math.floor(Math.random()*statuses.length)];
-        }
-
-      function buildJson(){
-
-
-        // USER_ALIAS = name given to file by user
-        var  UUID = b(),
-          URI = "FILE URI",
-          name = "USER_ALIAS",
-          type = "ASSET_TYPE",
-          duration = "MS",
-          frameCount = Math.floor(Math.random()*90000).toString(),
-          fileHealth = randomStatus(),
-          fileSize = Math.floor(Math.random()*1200) + " MB",
-          playCount = 0,
-          size = {
-            "width" : "800",
-            "height" : "800"
-          };
-
-
-        return {
-          "UUID" : UUID,
-          "URI" : URI,
-          "name" : name,
-          "type" : type,
-          "duration" : duration,
-          "frameCount" : frameCount,
-          "playCount" : playCount,
-          "fileHealth" : fileHealth,
-          "fileSize" : fileSize,
-          "size" : size
-        }
-
-      }
-      // console.log(buildJson());
-
-      // function popPlaylist(){
-      //   $("#sortablePlaylist .row, #sortableMediaLibrary .row").each(function(){
-      //     $(this).html($.mustache($("#playlistElement").html(), ));
-      //   });
-      // }
-      
-      // popPlaylist();
     </script>
   </body>
 </html>
