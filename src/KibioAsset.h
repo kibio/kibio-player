@@ -36,6 +36,7 @@ public:
     
     UUID getUUID() const;
 
+
     void setDuration(unsigned long long _duration);
     unsigned long long getDuration() const;
     
@@ -45,9 +46,15 @@ public:
     Json::Value getJSON() const {
         Json::Value json;
 
+        Poco::File file(getFilename());
+        
+        int fileSize = file.getSize();
+        
         json["UUID"] = getUUID().toString();
         json["URI"]  = getURI().toString();
-
+        json["fileName"]  = ofFilePath::getBaseName(getFilename());
+        json["fileExtension"] = ofFilePath::getFileExt(getFilename());
+        json["fileSize"] = fileSize;
         json["duration"] = getDuration();
         json["numFrames"] = getNumFrames();
 
@@ -80,6 +87,7 @@ protected:
     Type fileType;
     string filename;
     UUID uuid;
+    string fileExtension;
     
     unsigned long playCount;
     unsigned long playlistOccuranceCount;
