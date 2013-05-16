@@ -131,25 +131,41 @@ function onMessage(evt) {
 }
 
 function drawEntries(rawJSON){
+
   $(rawJSON.assets).each(function(index){
-    $("#sortableMediaLibrary").append($.mustache($("#playlistElement").html(), rawJSON.assets[index]));
+    //add 'fileType'
+    //rawJSON.assets[index].fileType=rawJSON.assets[index].URI.substring(rawJSON.assets[index].URI.length-3,rawJSON.assets[index].URI.length);
+    
+    //add 'fileHealth'
+    if (rawJSON.assets[index].fileName){
+      rawJSON.assets[index].fileHealth ={fileOk: true};
+    }
+    //rawJSON.assets[index].name = unescape(rawJSON.assets[index].URI.match(/([^\/]+)(?=\.\w+$)/)[0]);
+    
+
+    $("#mediaLibrary").append($.mustache($("#bootstrapPlaylist").html(), rawJSON.assets[index], {fileHealthIndicator: $("#fileHealthIndicator").html()}));
   });
+
+
   // update the interactive portions of the site every time there is a change to the playlist
   updateInteractions();
 }
 
-function onClose() {
-  ofLogNotice("Connection closed.");
-}
+function addToPlaylist(uuid){
+  // add an asset from the media library to the playlist
 
-function onError() {
-  ofLogNotice("Connection Error.");
+  //create a message for adding UUID to playlist
+
+
+
+  $("#sortablePlaylist").append($.mustache($("#playlistElement").html(), uuid));
+  updateInteractions();
 }
 
 function updateInteractions(){
 
   // add hover-state to list elements
-  $("li.playlist").hover(
+  $("li.playlistItem").hover(
     function() {
       $(this).removeClass('ui-state-default');
       $(this).addClass('ui-state-hover');
@@ -159,6 +175,13 @@ function updateInteractions(){
   });
 }
 
+function onClose() {
+  ofLogNotice("Connection closed.");
+}
+
+function onError() {
+  ofLogNotice("Connection Error.");
+}
 
 $(document).ready( function() {
   // creat the new socket
