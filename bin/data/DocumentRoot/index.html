@@ -1,126 +1,356 @@
-<div class='navbar navbar-inverse navbar-fixed-top'>
-    <div class='navbar-inner'>
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset='utf-8'>
+    <title>kibio</title>
+    <meta content='width=device-width, initial-scale=1.0' name='viewport'>
+    <meta content='' name='description'>
+    <meta content='' name='author'>
+    <!-- Le styles -->
+    <link href='common/css/bootstrap.css' rel='stylesheet'>
+    <link rel="stylesheet" href="common/css/font-awesome.min.css">
+    <style>
+      body {
+              padding-top: 60px;
+              padding-bottom: 40px;
+              background-color: #3FA9F5;
+            }
+            .sidebar-nav {
+              padding: 9px 0;
+            }
+            
+            .hero-unit {
+            padding: 12px 24px 12px 24px;
+            margin: 12px;
+            font-size: 18px;
+             font-weight: 200;
+            line-height: 0px;
+            color: inherit;
+            background-color: #0071BC;
+            -webkit-border-radius: 12px;
+            -moz-border-radius: 12px;
+            border-radius: 12px;
+            }
+      
+      /*Accordion Styling*/
+      
+        .accordion {
+        margin: 0px;
+        padding: 0px 6px 0px 6px;
+      }
+      
+           .accordion-group {
+        margin-bottom: 1px;
+        border: none;
+        padding: 0px;
+        -webkit-border-radius: 4px;
+           -moz-border-radius: 4px;
+                border-radius: 4px;
+      }
+      
+      .accordion-heading {
+        padding-bottom: 0px;
+        border: none;
+      
+      }
+      
+      .accordion-heading .accordion-toggle {
+        display: block;
+        padding: 0px;
+        border: none;
+        height: 30px;
+      
+      }
+      
+      
+      .accordion-inner {
+        padding: 0px;
+        border: none;
+      }
+      
+          
+      #mediaLibraryContainer {
+        margin: 0px;
+        padding: 0px;
+        border: none;
+          }
+      
+      #iconOffset{
+        padding-right:24px;
+      }
+      
+      <! -- End Accordion Styling -- >   
+      
+      #videoAccordion{
+        height:0px;
+      }
+          
+            
+            
+        @media (max-width: 980px) {
+              /* Enable use of floated navbar text */
+              .navbar-text .pull-right {
+                float: none;
+                padding-left: 0px;
+                padding-right: 0px;
+              }  
+            }
+            
+      ul#sortablePlaylist, ul#sortableMediaLibrary{
+      list-style-type: none!important;
+      margin: 0px;
+      padding: 0px;
+      border: none;
+      }
+                
+                
+            }
+      
+      <! -- Nav Tabs -->
+      
+            
+          
+      .nav .nav-tabs > li{
+        color:#0071BC;
+        border: none;
+        background-color: #3FA9F5;
+      }
+      
+      .nav.nav-tabs > li > a{
+        border: none;
+        background-color: #3FA9F5;
+      }
+            
+      .nav.nav-tabs > li > a:hover{
+        color:#FFFFFF;
+        border: none;
+        background-color: #3FA9F5;
+      }
+      
+      
+      #tabBoxStyle{
+        height:24px; 
+        min-height:24px; 
+        background-color:#3FA9F5; 
+        margin:0px;
+        padding: 12px;
+      
+        }
+
+        .playlistAccordion {
+          background-color: #3FA9F5;
+        }
+        
+        .ui-icon{
+          float:left;
+          margin-top:12px;
+        }
+      
+        #playBar{
+          text-align:center;
+          margin-left:0;
+        }
+        #playBar a{
+          background: #3FA9F5;
+          border:1px solid #3FA9F5;
+          color:white;
+          text-shadow:rgba(5,5,5, 0.5);
+        }
+        #playBar a:hover{
+          border:1px solid white;
+
+        }
+        
+        #sortableHeader{
+          font-weight:bold;
+        }
+/*        .connectedSortable{
+          cursor:pointer;
+        }
+// taken care of by passed params
+*/ 
+        #playlistHeader{
+          text-align:center;
+        }
+
+        .fileExtension{
+          text-transform: uppercase;
+        }
+        .sortablePlaceholder{
+          background-color: rgb(127,127,127);
+        }
+    </style>
+    <link href='common/css/bootstrap-responsive.css' rel='stylesheet'>
+    <link href='common/css/custom-theme/jquery-ui-1.10.3.custom.css' rel='stylesheet'>
+    <link rel="icon" href="./common/img/favicon.ico" type="image/x-icon">
+  </head>
+  <body>
+    <div class='navbar navbar-inverse navbar-fixed-top'>
+      <div class='navbar-inner'>
         <div class='container-fluid'>
-            <button class='btn btn-navbar' data-target='.nav-collapse' data-toggle='collapse' type='button'></button> <a class='brand' href='/'>Kibio</a>
-            <div class='nav-collapse collapse'>
-                <ul class='nav'>
-                    <li class='active'>
-                        <a href='#'>Player</a>
-                    </li>
-                    <li>
-                        <a href='#faq'>FAQ</a>
-                    </li>
-                    <li>
-                        <a href='#help'>Help</a>
-                    </li>
-                </ul>
-            </div><!-- /.nav-collapse -->
+          <button class='btn btn-navbar' data-target='.nav-collapse' data-toggle='collapse' type='button'>
+            <span class='icon-bar'></span>
+            <span class='icon-bar'></span>
+            <span class='icon-bar'></span>
+          </button>
+          <a class='brand' href='/'>Kibio</a>
+          <div class='nav-collapse collapse'>
+            <ul class='nav'>
+              <li class='active'>
+                <a href='#'>Player</a>
+              </li>
+              <li>
+                <a href='#faq'>FAQ</a>
+              </li>
+              <li>
+                <a href='#help'>Help</a>
+              </li>
+            </ul>
+          </div>
+          <!-- /.nav-collapse -->
         </div>
+      </div>
     </div>
-</div>
-<div class='container-fluid'>
-    <div class='row-fluid'>
+    <div class='container-fluid'>
+      <div class='row-fluid'>
         <div class='hero-unit span8 offset2'>
-            <!-- Media Library -->
-            <div class='accordion' id='mediaLibraryAccordion'>
-                <div class='accordion-group'>
-                    <div class='accordion-heading'>
-                        <a class='accordion-toggle btn btn-link pagination-right' data-parent='#mediaLibraryAccordion' data-toggle='collapse' href='#mediaLibraryContainer'></a>
-                    </div>
-                    <div class='accordion-body collapse in' id='mediaLibraryContainer'>
-                        <div class='accordion-inner'>
-                            <div id="mediaLibrary"></div>
-                        </div>
-                    </div>
+          <!-- Media Library -->
+          <div class='accordion' id='mediaLibraryAccordion'>
+            <div class='accordion-group'>
+              <div class='accordion-heading'>
+                <a class='accordion-toggle btn btn-link pagination-right' data-parent='#mediaLibraryAccordion' data-toggle='collapse' href='#mediaLibraryContainer'>
+                  <i class='icon-chevron-up icon-white'></i>
+                </a>
+              </div>
+              <div class='accordion-body collapse in' id='mediaLibraryContainer'>
+                <div class='accordion-inner'>                  
+                  <div id="mediaLibrary">
+                  </div>
                 </div>
+              </div>
             </div>
+          </div>
         </div>
-    </div>
-    <div class='row-fluid'>
+      </div>
+      <div class='row-fluid'>
         <div class='hero-unit span8 offset2'>
-            <!-- Start Playlist -->
-            <!-- Begin accordion for Playlist -->
-            <div class='accordion' id='playlistAccordion'>
-                <div class='accordion-group'>
-                    <div class='accordion-heading'>
-                        <a class='accordion-toggle btn btn-link pagination-right' data-parent='#playlistAccordion' data-toggle='collapse' href='#videoContainer'></a>
-                    </div><!-- Everything That Collapses in box1 -->
-                    <div class='accordion-body collapse in' id='videoContainer'>
+          <!-- Start Playlist -->
+          <!-- Begin accordion for Playlist -->
+          <div class='accordion' id='playlistAccordion'>
+            <div class='accordion-group'>
+              <div class='accordion-heading'>
+                <a class='accordion-toggle btn btn-link pagination-right' data-parent='#playlistAccordion' data-toggle='collapse' href='#videoContainer'>
+                  <i class='icon-chevron-up icon-white'></i>
+                </a>
+              </div>
+              <!-- Everything That Collapses in box1 -->
+              <div class='accordion-body collapse in' id='videoContainer'>
+                <div class='accordion-inner'>
+                  <div class='accordion' id='videoAccordion'>
+                    <div class='accordion-group'>
+                      <div class='accordion-heading'>
+                        <a class='accordion-toggle btn btn-link pagination-right' data-parent='#videoAccordion' data-toggle='collapse' href='#videoBox' id='iconOffset'>
+                          <i class='icon-chevron-up icon-white'></i>
+                        </a>
+                      </div>
+                      <!-- Everything That Collapses in playbackBox -->
+                      <div class='accordion-body collapse in' id='videoBox'>
                         <div class='accordion-inner'>
-                            <div class='accordion' id='videoAccordion'>
-                                <div class='accordion-group'>
-                                    <div class='accordion-heading'>
-                                        <a class='accordion-toggle btn btn-link pagination-right' data-parent='#videoAccordion' data-toggle='collapse' href='#videoBox' id='iconOffset'></a>
-                                    </div><!-- Everything That Collapses in playbackBox -->
-                                    <div class='accordion-body collapse in' id='videoBox'>
-                                        <div class='accordion-inner'>
-                                            <div class='tabBox pagination pagination-right' id='tabBoxStyle'>
-                                                <ul class='nav nav-tabs'>
-                                                    <li class='active'>
-                                                        <a data-toggle='tab' href='#emptyBox1'><i>A</i></a>
-                                                    </li>
-                                                    <li>
-                                                        <a data-toggle='tab' href='#emptyBox2'><i>B</i></a>
-                                                    </li>
-                                                    <li>
-                                                        <a data-toggle='tab' href='#emptyBox3'><i>C</i></a>
-                                                    </li>
-                                                </ul>
-                                            </div><!-- END TABBOX -->
-                                            <div class='tab-content'>
-                                                <div class='tab-pane active' id='emptyBox1'>
-                                                    <div id='emptyBox12' style='height:400px; min-height:400px; background-color:black;'></div>
-                                                </div>
-                                                <div class='tab-pane' id='emptyBox2'>
-                                                    <div id='emptyBox22' style='height:400px; min-height:400px; background-color:red;'></div>
-                                                </div>
-                                                <div class='tab-pane' id='emptyBox3'>
-                                                    <div id='emptyBox32' style='height:400px; min-height:400px; background-color:blue;'></div>
-                                                </div>
-                                            </div>
-                                        </div><!-- END TabContent -->
-                                    </div><!-- END COLLAPSE ONE -->
-                                </div><!-- END ACCORDION GROUP -->
-                            </div><!-- END ACCORDION -->
-                            <!-- END accordion for video playback -->
-                            <div class='span12' id='playBar'>
-                                <div class='btn-group pagination pagination-center'>
-                                    <a class='btn' href='' id="video-control-backward"></a> <a class='btn' href='' id="video-control-play"></a> <a class='btn' href='' id="video-control-pause"></a> <a class='btn' href='' id="video-control-forward"></a>
-                                </div>
-                            </div><!-- END Play ToolBar -->
-                            <!-- sortable Playlist -->
-                            <ul class='span12 connectedSortable' id='sortablePlaylist'>
-                                <!-- filled by kibio-player -->
+                          <div class='tabBox pagination pagination-right' id='tabBoxStyle'>
+                            <ul class='nav nav-tabs'>
+                              <li class='active'>
+                                <a data-toggle='tab' href='#emptyBox1'>
+                                  <i>A</i>
+                                </a>
+                              </li>
+                              <li>
+                                <a data-toggle='tab' href='#emptyBox2'>
+                                  <i>B</i>
+                                </a>
+                              </li>
+                              <li>
+                                <a data-toggle='tab' href='#emptyBox3'>
+                                  <i>C</i>
+                                </a>
+                              </li>
                             </ul>
+                          </div>
+                          <!-- END TABBOX -->
+                          <div class='tab-content'>
+                            <div class='tab-pane active' id='emptyBox1'>
+                              <div id='emptyBox1' style='height:400px; min-height:400px; background-color:black;'></div>
+                            </div>
+                            <div class='tab-pane' id='emptyBox2'>
+                              <div id='emptyBox2' style='height:400px; min-height:400px; background-color:red;'></div>
+                            </div>
+                            <div class='tab-pane' id='emptyBox3'>
+                              <div id='emptyBox3' style='height:400px; min-height:400px; background-color:blue;'></div>
+                            </div>
+                          </div>
                         </div>
+                        <!-- END TabContent -->
+                      </div>
+                      <!-- END COLLAPSE ONE -->
                     </div>
+                    <!-- END ACCORDION GROUP -->
+                  </div>
+                  <!-- END ACCORDION -->
+                  <!-- END accordion for video playback -->
+                  <div class='span12' id='playBar'>
+                    <div class='btn-group pagination pagination-center'>
+                      <a class='btn' href='' id="video-control-backward">
+                        <i class='icon-backward icon-2x'></i>
+                      </a>
+                      <a class='btn' href='' id="video-control-play">
+                        <i class='icon-play icon-2x'></i>
+                      </a>
+                      <a class='btn' href='' id="video-control-pause">
+                        <i class='icon-pause icon-2x'></i>
+                      </a>                      
+                      <a class='btn' href='' id="video-control-forward">
+                        <i class='icon-forward icon-2x'></i>
+                      </a>
+                    </div>
+                  </div>
+                  <!-- END Play ToolBar -->
+                  <!-- sortable Playlist -->
+                  <ul class='span12 connectedSortable' id='sortablePlaylist'>
+                    <!-- filled by kibio-player -->
+                  </ul>
                 </div>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
+      
+      <footer>
+      <!-- potential future use? -->
+      </footer>
+    
     </div>
-    <footer>
-        <!-- potential future use? -->
-    </footer>
-</div><!-- Placed at the end of the document so the pages load faster -->
-<script src='common/js/jquery.js' type="text/javascript">
-</script><script src='common/js/bootstrap-transition.js' type="text/javascript">
-</script><script src='common/js/bootstrap-alert.js' type="text/javascript">
-</script><script src='common/js/bootstrap-modal.js' type="text/javascript">
-</script><script src='common/js/bootstrap-dropdown.js' type="text/javascript">
-</script><script src='common/js/bootstrap-scrollspy.js' type="text/javascript">
-</script><script src='common/js/bootstrap-tab.js' type="text/javascript">
-</script><script src='common/js/bootstrap-tooltip.js' type="text/javascript">
-</script><script src='common/js/bootstrap-popover.js' type="text/javascript">
-</script><script src='common/js/bootstrap-button.js' type="text/javascript">
-</script><script src='common/js/bootstrap-collapse.js' type="text/javascript">
-</script><script src='common/js/bootstrap-carousel.js' type="text/javascript">
-</script><script src='common/js/bootstrap-typeahead.js' type="text/javascript">
-</script><script src='common/js/jquery-ui-1.10.1.custom.js' type="text/javascript">
-</script><script src="common/js/jquery.mustache.js" type="text/javascript">
-</script><script src="js/ofxHTTPWebSocket.js" type="text/javascript">
-</script><!-- our helper js because it makes life easier -->
-<script src="js/main.js" type="text/javascript">
-</script><!-- our main js file because we need it to define our program -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src='common/js/jquery.js'></script>
+    <script src='common/js/bootstrap-transition.js'></script>
+    <script src='common/js/bootstrap-alert.js'></script>
+    <script src='common/js/bootstrap-modal.js'></script>
+    <script src='common/js/bootstrap-dropdown.js'></script>
+    <script src='common/js/bootstrap-scrollspy.js'></script>
+    <script src='common/js/bootstrap-tab.js'></script>
+    <script src='common/js/bootstrap-tooltip.js'></script>
+    <script src='common/js/bootstrap-popover.js'></script>
+    <script src='common/js/bootstrap-button.js'></script>
+    <script src='common/js/bootstrap-collapse.js'></script>
+    <script src='common/js/bootstrap-carousel.js'></script>
+    <script src='common/js/bootstrap-typeahead.js'></script>
+    <script src='common/js/jquery-ui-1.10.1.custom.js'></script>
+
+    <script src="common/js/jquery.mustache.js"></script>
+
+    <script src="js/ofxHTTPWebSocket.js"></script> <!-- our helper js because it makes life easier -->
+    <script src="js/main.js"></script>             <!-- our main js file because we need it to define our program -->
+
+
 
     <script id="playlistElement" type="text/x-mustache">
       <li class='row-fluid ui-state-default playlistItem' id='playlist-{{UUID}}'>
@@ -184,6 +414,11 @@
           forcePlaceholderSize: true,
           cursor: "move"
         });
+
+        // hide mediaLibrary onload
+        $("#mediaLibraryContainer").collapse("hide");
+
+        //set toggles for accordions when drop-downed and dropd-up
 
       });
     </script>
