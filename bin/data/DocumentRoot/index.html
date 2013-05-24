@@ -179,31 +179,45 @@
         .sortablePlaceholder{
           background-color: rgb(127,127,127);
         }
+        #mediaLibraryContainer{
+          height:500px;
+          max-height:500px;
+          overflow: hidden;
+        }
     </style>
     <link href='common/css/bootstrap-responsive.css' rel='stylesheet'>
     <link href='common/css/custom-theme/jquery-ui-1.10.3.custom.css' rel='stylesheet'>
     <link rel="icon" href="./common/img/favicon.ico" type="image/x-icon">
   </head>
   <body>
-    <div class='navbar navbar-inverse navbar-fixed-top'>
-      <div class='navbar-inner'>
-        <div class='container-fluid'>
-          <button class='btn btn-navbar' data-target='.nav-collapse' data-toggle='collapse' type='button'>
-            <span class='icon-bar'></span>
-            <span class='icon-bar'></span>
-            <span class='icon-bar'></span>
+    <div class="navbar navbar-fixed-top" style="position:fixed;z-index:-5;">
+      <div class="navbar-inner" style="background-color:transparent;border:none; /* background color will be black for all browsers */ background-image: none; background-repeat: no-repeat; box-shadow: none;">
+        <div class="container-fluid">
+          <div class="brand">
+            <img src="./common/img/kibio.mark-white.png">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="navbar fade navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <button class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse" type="button">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
           </button>
-          <a class='brand' href='/'>Kibio</a>
-          <div class='nav-collapse collapse'>
-            <ul class='nav'>
-              <li class='active'>
-                <a href='#'>Player</a>
+          <a class="brand" href="/"><img src="./common/img/kibio.mark-white.png"></a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="active">
+                <a href="#">Player</a>
               </li>
               <li>
-                <a href='#faq'>FAQ</a>
+                <a href="#faq">FAQ</a>
               </li>
               <li>
-                <a href='#help'>Help</a>
+                <a href="#help">Help</a>
               </li>
             </ul>
           </div>
@@ -211,80 +225,44 @@
         </div>
       </div>
     </div>
-    <div class='container-fluid'>
-      <div class='row-fluid'>
-        <div class='hero-unit span8 offset2'>
-          <!-- Media Library -->
-          <div class='accordion' id='mediaLibraryAccordion'>
-            <div class='accordion-group'>
-              <div class='accordion-heading'>
-                <a class='accordion-toggle btn btn-link pagination-right' data-parent='#mediaLibraryAccordion' data-toggle='collapse' href='#mediaLibraryContainer'>
-                  <i class='icon-chevron-up icon-white'></i>
-                </a>
-              </div>
-              <div class='accordion-body collapse in' id='mediaLibraryContainer'>
-                <div class='accordion-inner'>                  
-                  <div id="mediaLibrary">
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+    <div class="container-fluid">
+      <div class="row-fluid">
+        
       </div>
-      <div class='row-fluid'>
-        <div class='hero-unit span8 offset2'>
+      <div class="row-fluid">
+        <div class="hero-unit span8 offset2">
           <!-- Start Playlist -->
           <!-- Begin accordion for Playlist -->
-          <div class='accordion' id='playlistAccordion'>
-            <div class='accordion-group'>
-              <div class='accordion-heading'>
-                <a class='accordion-toggle btn btn-link pagination-right' data-parent='#playlistAccordion' data-toggle='collapse' href='#videoContainer'>
-                  <i class='icon-chevron-up icon-white'></i>
-                </a>
+          <div class="accordion" id="playlistAccordion">
+            <div class="accordion-group">
+              <div class="accordion-heading">
+                  <div style="">
+</div>
+
+
               </div>
               <!-- Everything That Collapses in box1 -->
-              <div class='accordion-body collapse in' id='videoContainer'>
-                <div class='accordion-inner'>
-                  <div class='accordion' id='videoAccordion'>
-                    <div class='accordion-group'>
-                      <div class='accordion-heading'>
-                        <a class='accordion-toggle btn btn-link pagination-right' data-parent='#videoAccordion' data-toggle='collapse' href='#videoBox' id='iconOffset'>
-                          <i class='icon-chevron-up icon-white'></i>
-                        </a>
+              <div class="accordion-body in collapse" id="videoContainer" style="height: auto;">
+                <div class="accordion-inner">
+                  <div class="accordion" id="videoAccordion">
+                    <div class="accordion-group">
+                      <div class="accordion-heading">
+                          <i class="icon-white accordion-toggle pagination-right icon-chevron-up" href="#videoBox" data-parent="#videoAccordion" data-toggle="collapse" onclick="toggleChevron(this)" id="videoAccordionChevron"></i>
                       </div>
                       <!-- Everything That Collapses in playbackBox -->
-                      <div class='accordion-body collapse in' id='videoBox'>
-                        <div class='accordion-inner'>
-                          <div class='tabBox pagination pagination-right' id='tabBoxStyle'>
-                            <ul class='nav nav-tabs'>
-                              <li class='active'>
-                                <a data-toggle='tab' href='#emptyBox1'>
-                                  <i>A</i>
-                                </a>
-                              </li>
-                              <li>
-                                <a data-toggle='tab' href='#emptyBox2'>
-                                  <i>B</i>
-                                </a>
-                              </li>
-                              <li>
-                                <a data-toggle='tab' href='#emptyBox3'>
-                                  <i>C</i>
-                                </a>
-                              </li>
-                            </ul>
-                          </div>
+                      <div class="accordion-body in collapse" id="videoBox" style="height: auto;">
+                        <div class="accordion-inner">
+                          
                           <!-- END TABBOX -->
-                          <div class='tab-content'>
-                            <div class='tab-pane active' id='emptyBox1'>
-                              <div id='emptyBox1' style='height:400px; min-height:400px; background-color:black;'></div>
+                          <div class="tab-content">
+                            <div class="tab-pane active" id="emptyBox1">
+                              <div id="emptyBox1" style="height:400px; min-height:400px; background-color:black;"></div>
                             </div>
-                            <div class='tab-pane' id='emptyBox2'>
-                              <div id='emptyBox2' style='height:400px; min-height:400px; background-color:red;'></div>
+                            <div class="tab-pane" id="emptyBox2">
+                              <div id="emptyBox2" style="height:400px; min-height:400px; background-color:red;"></div>
                             </div>
-                            <div class='tab-pane' id='emptyBox3'>
-                              <div id='emptyBox3' style='height:400px; min-height:400px; background-color:blue;'></div>
+                            <div class="tab-pane" id="emptyBox3">
+                              <div id="emptyBox3" style="height:400px; min-height:400px; background-color:blue;"></div>
                             </div>
                           </div>
                         </div>
@@ -296,27 +274,48 @@
                   </div>
                   <!-- END ACCORDION -->
                   <!-- END accordion for video playback -->
-                  <div class='span12' id='playBar'>
-                    <div class='btn-group pagination pagination-center'>
-                      <a class='btn' href='' id="video-control-backward">
-                        <i class='icon-backward icon-2x'></i>
+                  <div class="span12" id="playBar">
+                    <div class="span3 btn-group pagination pagination-center"><a class="btn" href="" id="">
+                        <i style="color:white;background: #3FA9F5;                      color:white;           text-shadow:rgba(5,5,5, 0.5);" class="icon-2x icon-white accordion-toggle pagination-left icon-eject" data-parent="#playlistAccordion" data-toggle="collapse" href="#videoContainer" onclick="toggleChevron(this)"></i>
                       </a>
-                      <a class='btn' href='' id="video-control-play">
-                        <i class='icon-play icon-2x'></i>
+                      
+                      <a class="btn" href="" id="video-control-play">
+                        <i class="icon-play icon-2x"></i>
                       </a>
-                      <a class='btn' href='' id="video-control-pause">
-                        <i class='icon-pause icon-2x'></i>
-                      </a>                      
-                      <a class='btn' href='' id="video-control-forward">
-                        <i class='icon-forward icon-2x'></i>
-                      </a>
+                                            
+                      
                     </div>
+<div class="span9 progress progress-warning progress-striped" style="
+    margin-top: 25px;
+">
+  <div class="bar" style="width: 60%"></div>
+</div>
                   </div>
                   <!-- END Play ToolBar -->
                   <!-- sortable Playlist -->
-                  <ul class='span12 connectedSortable' id='sortablePlaylist'>
+                  <ul class="span12 connectedSortable ui-sortable" id="sortablePlaylist">
                     <!-- filled by kibio-player -->
-                  </ul>
+                        <li class="row-fluid playlistItem ui-state-default" id="playlist-e183b8f0-6048-3076-aafd-0cc6fd67e65c">
+        <span class="span1">
+          <span class="badge badge-info fileExtension">png</span>
+        </span>
+        <span class="offset1 span4">alpha_2</span>
+        <span class="offset1 span1">MASK</span>
+        <span class="span1">WARP</span>
+        <span class="span1">TIME</span>
+        <span class="span1 offset1"><a onclick="$('#playlist-e183b8f0-6048-3076-aafd-0cc6fd67e65c').remove();"><i class="icon-remove icon-large"></i></a></span>
+      </li>
+          <li class="row-fluid playlistItem ui-state-default" id="playlist-a0dd03e6-fdd5-32d6-a8bd-8f5baf4bbd03">
+        <span class="span1">
+          <span class="badge badge-info fileExtension">wav</span>
+        </span>
+        <span class="offset1 span4">amen_brother</span>
+        <span class="offset1 span1">MASK</span>
+        <span class="span1">WARP</span>
+        <span class="span1">TIME</span>
+        <span class="span1 offset1"><a onclick="$('#playlist-a0dd03e6-fdd5-32d6-a8bd-8f5baf4bbd03').remove();"><i class="icon-remove icon-large"></i></a></span>
+      </li>
+    </ul>
                 </div>
               </div>
             </div>
@@ -324,26 +323,39 @@
         </div>
       </div>
       
-      <footer>
-      <!-- potential future use? -->
-      </footer>
+      <footer style="
+    background: white;
+">
+<span class="icon-stack">
+<i style="color:yellow;" class="icon-2x icon-stack-base icon-sign-blank"></i>
+<i style="color:white;" class="icon-2x icon-circle"></i>
+</span>
+<span class="icon-stack">
+<i style="color: rgb(209, 209, 209);" class="icon-2x icon-stack-base icon-sign-blank"></i>
+<i style="color:white;" class="icon-2x icon-fullscreen"></i>
+</span>
+<span class="icon-stack">
+<i style="color:black;" class="icon-2x icon-stack-base icon-sign-blank"></i>
+<i style="color:white;" class="icon-2x icon-time"></i>
+</span></footer>
+
     
     </div>
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src='common/js/jquery.js'></script>
-    <script src='common/js/bootstrap-transition.js'></script>
-    <script src='common/js/bootstrap-alert.js'></script>
-    <script src='common/js/bootstrap-modal.js'></script>
-    <script src='common/js/bootstrap-dropdown.js'></script>
-    <script src='common/js/bootstrap-scrollspy.js'></script>
-    <script src='common/js/bootstrap-tab.js'></script>
-    <script src='common/js/bootstrap-tooltip.js'></script>
-    <script src='common/js/bootstrap-popover.js'></script>
-    <script src='common/js/bootstrap-button.js'></script>
-    <script src='common/js/bootstrap-collapse.js'></script>
-    <script src='common/js/bootstrap-carousel.js'></script>
-    <script src='common/js/bootstrap-typeahead.js'></script>
-    <script src='common/js/jquery-ui-1.10.1.custom.js'></script>
+    <script src="common/js/jquery.js"></script>
+    <script src="common/js/bootstrap-transition.js"></script>
+    <script src="common/js/bootstrap-alert.js"></script>
+    <script src="common/js/bootstrap-modal.js"></script>
+    <script src="common/js/bootstrap-dropdown.js"></script>
+    <script src="common/js/bootstrap-scrollspy.js"></script>
+    <script src="common/js/bootstrap-tab.js"></script>
+    <script src="common/js/bootstrap-tooltip.js"></script>
+    <script src="common/js/bootstrap-popover.js"></script>
+    <script src="common/js/bootstrap-button.js"></script>
+    <script src="common/js/bootstrap-collapse.js"></script>
+    <script src="common/js/bootstrap-carousel.js"></script>
+    <script src="common/js/bootstrap-typeahead.js"></script>
+    <script src="common/js/jquery-ui-1.10.1.custom.js"></script>
 
     <script src="common/js/jquery.mustache.js"></script>
 
@@ -415,12 +427,27 @@
           cursor: "move"
         });
 
-        // hide mediaLibrary onload
-        $("#mediaLibraryContainer").collapse("hide");
+
+        // // hide mediaLibrary onload
+        // $("#mediaLibraryContainer").collapse("hide");
+
+        // // hide 'video' window onload
+        // $("#videoAccordion").collapse("hide");
 
         //set toggles for accordions when drop-downed and dropd-up
+        $(".navbar").hover(function(){
+          $(this).toggleClass("in");
+
+        },
+        function(){
+          $(this).toggleClass("in");
+        });
 
       });
+      function toggleChevron(ele){
+            $(ele).toggleClass('icon-chevron-down');
+            $(ele).toggleClass('icon-chevron-up');
+        }
     </script>
-  </body>
-</html>
+  
+</body></html>
