@@ -4,7 +4,7 @@
 #include "ofVideoPlayer.h"
 
 #include "ofFileUtils.h"
-#include "ofxMediaTypes.h"
+#include "MediaTypeMap.h"
 #include "ofxJSONElement.h"
 
 #include "KibioAsset.h"
@@ -20,9 +20,8 @@ public:
         
         int numFiles = dir.listDir("assets");
 
-        
-
         for(int i = 0; i < assets.size(); i++) {
+
         }
 
         for(int i = 0; i < numFiles; i++) {
