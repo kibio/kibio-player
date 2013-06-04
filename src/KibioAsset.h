@@ -55,6 +55,7 @@ public:
         json["fileName"]  = ofFilePath::getBaseName(getFilename());
         json["fileExtension"] = ofFilePath::getFileExt(getFilename());
         json["fileSize"] = fileSize;
+        json["alias"]  = getFilename();
         json["duration"] = getDuration();
         json["numFrames"] = getNumFrames();
 
@@ -70,6 +71,8 @@ public:
 
         json["size"]["width"] = width;
         json["size"]["height"] = height;
+
+        json["fileHealth"] = "Perfect";
 
         return json;
     }
