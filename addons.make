@@ -1,6 +1,9 @@
 ofxEnablerInterface
 ofxHTTP
+ofxIO
 ofxJSON
+ofxLibmagic
+ofxMediaType
 ofxOsc
 ofxXmlSettings
 ofxZeroconf
