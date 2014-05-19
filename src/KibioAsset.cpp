@@ -52,7 +52,7 @@ KibioAsset::~KibioAsset()
 }
 
 
-string KibioAsset::getFilename() const
+std::string KibioAsset::getFilename() const
 {
     return _filename;
 }

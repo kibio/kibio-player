@@ -76,6 +76,7 @@ public:
     float lastIconAlpha;
     
     std::map<std::string,ofPtr<ofImage> > icons;
+    
 };
 
     
