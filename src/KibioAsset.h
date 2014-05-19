@@ -2,48 +2,47 @@
 
 #include <string>
 #include <vector>
+#include <json/json.h>
 
 #include "Poco/URI.h"
 #include "Poco/UUID.h"
 #include "Poco/UUIDGenerator.h"
 
 #include "ofPixels.h"
-#include "ofxJSONElement.h"
 
-using std::string;
-using std::vector;
-
-using Poco::URI;
-using Poco::UUID;
-using Poco::UUIDGenerator;
 
 class KibioPlaylistItem;
 
-class KibioAsset {
+
+class KibioAsset
+{
 public:
-    enum Type {
+    enum Type
+    {
         VIDEO,
         SOUND
     };
     
-    KibioAsset(const string& _filename, Type _fileType);
+    KibioAsset(const std::string& filename, Type fileType);
     virtual ~KibioAsset();
     
-    string getFilename() const;
-    URI    getURI() const;
+    std::string getFilename() const;
+    Poco::URI getURI() const;
 
     Type getType() const;
     
-    UUID getUUID() const;
-
+    Poco::UUID getUUID() const;
 
     void setDuration(unsigned long long _duration);
+
     unsigned long long getDuration() const;
     
     void setNumFrames(unsigned long long _numFrames);
+
     unsigned long long getNumFrames() const;
 
-    Json::Value getJSON() const {
+    Json::Value getJSON() const
+    {
         Json::Value json;
 
         Poco::File file(getFilename());
@@ -59,18 +58,23 @@ public:
         json["duration"] = getDuration();
         json["numFrames"] = getNumFrames();
 
-        if(getType() == VIDEO) {
+        if(getType() == VIDEO)
+        {
             json["type"] = "VIDEO";
-        } else if(getType() == SOUND) {
+        }
+        else if(getType() == SOUND)
+        {
             json["type"] = "SOUND";
-        } else {
+        }
+        else
+        {
             json["type"] = "UNKNOWN";
         }
 
-        json["playCount"] = (int)playCount;
+        json["playCount"] = (int)_playCount;
 
-        json["size"]["width"] = width;
-        json["size"]["height"] = height;
+        json["size"]["width"] = _width;
+        json["size"]["height"] = _height;
 
         json["fileHealth"] = "Perfect";
 
@@ -86,23 +90,22 @@ public:
 //    void playCountSubtract();
     
 protected:
-        
-    Type fileType;
-    string filename;
-    UUID uuid;
-    string fileExtension;
+    Type _fileType;
+    std::string _filename;
+    Poco::UUID _uuid;
+    std::string _fileExtension;
     
-    unsigned long playCount;
-    unsigned long playlistOccuranceCount;
+    unsigned long _playCount;
+    unsigned long _playlistOccuranceCount;
 
-    float width;
-    float height;
+    float _width;
+    float _height;
     
-    unsigned long long duration; // ms
-    unsigned long long numFrames;
+    unsigned long long _duration; // ms
+    unsigned long long _numFrames;
     
-    vector<ofPixels> frameCache;
+    std::vector<ofPixels> _frameCache;
     
-    vector<KibioPlaylistItem*> playlistsItems;
+    std::vector<KibioPlaylistItem*> _playlistsItems;
 
 };

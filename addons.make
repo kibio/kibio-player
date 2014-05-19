@@ -1,10 +1,11 @@
-ofxEnablerInterface
 ofxHTTP
 ofxIO
 ofxJSON
-ofxLibavUtils
+ofxJSONRPC
+ofxLibav
 ofxLibmagic
 ofxMediaType
 ofxOsc
+ofxSSLManager
 ofxXmlSettings
 ofxZeroconf

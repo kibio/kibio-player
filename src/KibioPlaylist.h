@@ -1,30 +1,35 @@
 #pragma once
 
-#include "KibioAsset.h"
 
+#include "KibioAsset.h"
 #include "KibioWarper.h"
 
-class KibioPlaylistItem {
+
+class KibioPlaylistItem
+{
 public:
-    KibioPlaylistItem(KibioAsset& _asset) : asset(_asset) {
+    KibioPlaylistItem(KibioAsset& asset): _asset(asset)
+    {
 //        asset.addToPlaylist(this);
     }
     
-    virtual ~KibioPlaylistItem() {
+    virtual ~KibioPlaylistItem()
+    {
 //        asset.removeFromPlaylist(this);
     }
 
-    KibioAsset& getKibioAssetRef() {
-        return asset;
+    KibioAsset& getKibioAssetRef()
+    {
+        return _asset;
     }
         
 private:
     
-    KibioWarper::Settings warperSettings;
+    KibioWarper::Settings _warperSettings;
     
-    KibioAsset& asset;
+    KibioAsset& _asset;
     
-    UUID uuid;
+    Poco::UUID _uuid;
     
     
     /*
