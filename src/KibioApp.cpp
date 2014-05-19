@@ -54,10 +54,10 @@ void PlayerApp::setup()
 
     ofSetLogLevel(OF_LOG_VERBOSE);
 
-//    ofSSLManager::initializeServer(new Poco::Net::Context(Poco::Net::Context::SERVER_USE,
-//                                                          ofToDataPath("ssl/privateKey.nopassword.pem"),
-//                                                          ofToDataPath("ssl/selfSignedCertificate.nopassword.pem"),
-//                                                          ofToDataPath("ssl/cacert.pem")));
+    ofSSLManager::initializeServer(new Poco::Net::Context(Poco::Net::Context::SERVER_USE,
+                                                          ofToDataPath("ssl/privateKey.nopassword.pem"),
+                                                          ofToDataPath("ssl/selfSignedCertificate.nopassword.pem"),
+                                                          ofToDataPath("ssl/cacert.pem")));
 
     HTTP::BasicJSONRPCServerSettings settings; // TODO: load from file.
     // settings.setUseSSL(true);
@@ -77,15 +77,15 @@ void PlayerApp::setup()
     lastIcon = "play";
     lastIconAlpha = 255;
     
-//    icons["step_backward"] = ofPtr<ofImage>(new ofImage("icons/glyphicons_170_step_backward.png"));
-//    icons["fast_backward"] = ofPtr<ofImage>(new ofImage("icons/glyphicons_171_fast_backward.png"));
-//    icons["rewind"] = ofPtr<ofImage>(new ofImage("icons/glyphicons_172_rewind.png"));
-//    icons["play"] = ofPtr<ofImage>(new ofImage("icons/glyphicons_173_play.png"));
-//    icons["pause"] = ofPtr<ofImage>(new ofImage("icons/glyphicons_174_pause.png"));
-//    icons["stop"] = ofPtr<ofImage>(new ofImage("icons/glyphicons_175_stop.png"));
-//    icons["forward"] = ofPtr<ofImage>(new ofImage("icons/glyphicons_176_forward.png"));
-//    icons["fast_forward"] = ofPtr<ofImage>(new ofImage("icons/glyphicons_177_fast_forward.png"));
-//    icons["step_forward"] = ofPtr<ofImage>(new ofImage("icons/glyphicons_178_step_forward.png"));
+    icons["step_backward"] = ofPtr<ofImage>(new ofImage("icons/glyphicons_170_step_backward.png"));
+    icons["fast_backward"] = ofPtr<ofImage>(new ofImage("icons/glyphicons_171_fast_backward.png"));
+    icons["rewind"] = ofPtr<ofImage>(new ofImage("icons/glyphicons_172_rewind.png"));
+    icons["play"] = ofPtr<ofImage>(new ofImage("icons/glyphicons_173_play.png"));
+    icons["pause"] = ofPtr<ofImage>(new ofImage("icons/glyphicons_174_pause.png"));
+    icons["stop"] = ofPtr<ofImage>(new ofImage("icons/glyphicons_175_stop.png"));
+    icons["forward"] = ofPtr<ofImage>(new ofImage("icons/glyphicons_176_forward.png"));
+    icons["fast_forward"] = ofPtr<ofImage>(new ofImage("icons/glyphicons_177_fast_forward.png"));
+    icons["step_forward"] = ofPtr<ofImage>(new ofImage("icons/glyphicons_178_step_forward.png"));
 
     fileManager.setup();
 
