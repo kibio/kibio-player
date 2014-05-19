@@ -27,14 +27,19 @@
 #include "ofBaseApp.h"
 
 #include "ofxJSONElement.h"
-#include "ofxWebSocketServerBasic.h"
+#include "WebSocketServerBasic.h"
 
 #include "ofxZeroconf.h"
 
 #include "KibioVideoPlayer.h"
 #include "KibioFileManager.h"
 
-class KibioApp : public ofBaseApp {
+
+using namespace ofx::HTTP;
+
+namespace Kibio {
+
+class PlayerApp : public ofBaseApp {
     
 public:
     void setup();
@@ -44,24 +49,27 @@ public:
     
     void gotMessage(ofMessage msg);
     
-    void onOpenEvent(ofxWebSocketEventArgs& _evtArgs);
-    void onCloseEvent(ofxWebSocketEventArgs& _evtArgs);
-    void onFrameReceivedEvent(ofxWebSocketFrameEventArgs& _evtArgs);
-    void onFrameSentEvent(ofxWebSocketFrameEventArgs& _evtArgs);
-    void onErrorEvent(ofxWebSocketEventArgs& _evtArgs);
+    void onOpenEvent(WebSocketEventArgs& _evtArgs);
+    void onCloseEvent(WebSocketEventArgs& _evtArgs);
+    void onFrameReceivedEvent(WebSocketFrameEventArgs& _evtArgs);
+    void onFrameSentEvent(WebSocketFrameEventArgs& _evtArgs);
+    void onErrorEvent(WebSocketEventArgs& _evtArgs);
     
-    void commandInterpreter(ofxWebSocketFrameEventArgs& _evtArgs);
-    bool startsWith(const string& target, const string& prefix);
+    void commandInterpreter(WebSocketFrameEventArgs& _evtArgs);
+    bool startsWith(const std::string& target, const std::string& prefix);
 
-    ofxWebSocketServerBasic::Ptr server;
+    BasicWebSocketServer::Ptr server;
 
     KibioVideoPlayer videoPlayer;
     KibioFileManager fileManager;
     
-    string lastMessage;
-    float  lastMessageAlpha;
-    string lastIcon;
-    float  lastIconAlpha;
+    std::string lastMessage;
+    float       lastMessageAlpha;
+    std::string lastIcon;
+    float   lastIconAlpha;
     
-    map<string,ofPtr <ofImage> > icons;
+    std::map<std::string,ofPtr<ofImage> > icons;
 };
+
+    
+}

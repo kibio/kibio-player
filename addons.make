@@ -2,6 +2,7 @@ ofxEnablerInterface
 ofxHTTP
 ofxIO
 ofxJSON
+ofxLibavUtils
 ofxLibmagic
 ofxMediaType
 ofxOsc

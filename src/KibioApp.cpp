@@ -1,21 +1,24 @@
 #include "KibioApp.h"
 
+
+namespace Kibio {
+
+
 //------------------------------------------------------------------------------
-void KibioApp::exit() {
+void PlayerApp::exit() {
     server->unregisterWebSocketEvents(this); // not needed
 }
 
 //------------------------------------------------------------------------------
-void KibioApp::setup() {
-
-
+void PlayerApp::setup() {
 
     ofSetFrameRate(30);
     ofEnableAlphaBlending();
 
-    ofSetLogLevel(OF_LOG_NOTICE);
+    ofSetLogLevel(OF_LOG_VERBOSE);
 
-    ofxWebSocketServerBasic::Settings settings;
+    BasicWebSocketServer::Settings settings;
+    settings.port = 8082;
 
     Zeroconf::Service::TXTRecord txtRecord;
 
@@ -24,8 +27,7 @@ void KibioApp::setup() {
     ofxZeroconf::registerService("_http._tcp.", settings.port,txtRecord);
     ofxZeroconf::registerService("_kibio_player._tcp.", settings.port,txtRecord);
 
-
-    server = ofxWebSocketServerBasic::instance(settings);
+    server = BasicWebSocketServer::Instance(settings);
     server->registerWebSocketEvents(this);
     server->start();
     
@@ -56,7 +58,7 @@ void KibioApp::setup() {
 }
 
 //------------------------------------------------------------------------------
-void KibioApp::update() {
+void PlayerApp::update() {
     videoPlayer.update();
     
     if(videoPlayer.isFrameNew()) {
@@ -69,7 +71,7 @@ void KibioApp::update() {
 }
 
 //------------------------------------------------------------------------------
-void KibioApp::draw() {
+void PlayerApp::draw() {
     ofBackground(255);
     ofSetColor(255);
     videoPlayer.draw(0,0,ofGetWidth(),ofGetHeight());
@@ -110,25 +112,25 @@ void KibioApp::draw() {
 }
 
 //------------------------------------------------------------------------------
-void KibioApp::gotMessage(ofMessage msg) {
+void PlayerApp::gotMessage(ofMessage msg) {
     lastMessage = msg.message;
     lastMessageAlpha = 255;
 }
 
 //------------------------------------------------------------------------------
-void KibioApp::onOpenEvent(ofxWebSocketEventArgs& _evtArgs) {
+void PlayerApp::onOpenEvent(WebSocketEventArgs& _evtArgs) {
     ofSendMessage("Got open event.");
 }
 
 //------------------------------------------------------------------------------
-void KibioApp::onCloseEvent(ofxWebSocketEventArgs& _evtArgs) {
+void PlayerApp::onCloseEvent(WebSocketEventArgs& _evtArgs) {
     ofSendMessage("Got close event.");
 }
 
 //------------------------------------------------------------------------------
-void KibioApp::onFrameReceivedEvent(ofxWebSocketFrameEventArgs& _evtArgs) {
+void PlayerApp::onFrameReceivedEvent(WebSocketFrameEventArgs& _evtArgs) {
     ofSendMessage("Got frame received event.");
-    if(_evtArgs.frame.isBinary()) {
+    if(_evtArgs.getFrameRef().isBinary()) {
         cout << "binary frame=" << endl;
     } else {
         commandInterpreter(_evtArgs);
@@ -137,17 +139,17 @@ void KibioApp::onFrameReceivedEvent(ofxWebSocketFrameEventArgs& _evtArgs) {
 }
 
 //------------------------------------------------------------------------------
-void KibioApp::onFrameSentEvent(ofxWebSocketFrameEventArgs& _evtArgs) {
+void PlayerApp::onFrameSentEvent(WebSocketFrameEventArgs& _evtArgs) {
     ofSendMessage("Got frame sent event.");
 }
 
 //------------------------------------------------------------------------------
-void KibioApp::onErrorEvent(ofxWebSocketEventArgs& _evtArgs) {
+void PlayerApp::onErrorEvent(WebSocketEventArgs& _evtArgs) {
     ofSendMessage("Got error event.");
 }
 
 //------------------------------------------------------------------------------
-void KibioApp::commandInterpreter(ofxWebSocketFrameEventArgs& _evtArgs) {
+void PlayerApp::commandInterpreter(WebSocketFrameEventArgs& _evtArgs) {
 
     string data = _evtArgs.getFrameRef().getText();
 
@@ -183,7 +185,7 @@ void KibioApp::commandInterpreter(ofxWebSocketFrameEventArgs& _evtArgs) {
                     Json::Value value;
                     value["assets"] = fileManager.getJSON();
 
-                    ofxWebSocketFrame frame(value.toStyledString());
+                    WebSocketFrame frame(value.toStyledString());
 
                     server->sendFrame(&_evtArgs.getConnectionRef(), frame);
                 }
@@ -216,6 +218,8 @@ void KibioApp::commandInterpreter(ofxWebSocketFrameEventArgs& _evtArgs) {
 }
 
 //------------------------------------------------------------------------------
-bool KibioApp::startsWith(const string& target, const string& prefix) {
+bool PlayerApp::startsWith(const string& target, const string& prefix) {
     return !target.compare(0, prefix.size(), prefix);
+}
+
 }
