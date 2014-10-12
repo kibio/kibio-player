@@ -5,74 +5,106 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>90E6CD5B-1462-4A32-B2F8-F6FD62A194D7</string>
+	<string>DAC5FB0E-FD12-4C75-8538-BE532C428D69</string>
 	<key>IDESourceControlProjectName</key>
 	<string>kibio-player</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>0867A622-4183-42B4-96A9-30C7CD64BFE7</key>
-		<string>ssh://github.com/bakercp/ofxIO.git</string>
-		<key>1F78F711-71FE-4A0D-AE40-470F4203962A</key>
-		<string>ssh://github.com/bakercp/ofxJSON.git</string>
-		<key>22F76709-CB94-4FE0-AB46-5D026F5F1505</key>
-		<string>ssh://github.com/bakercp/ofxLibmagic.git</string>
-		<key>45B414AD-06FD-4497-9C7A-E1A33FADFECF</key>
-		<string>ssh://github.com/bakercp/openFrameworks.git</string>
-		<key>67CB084F-7E76-4F4A-AACA-FF634C637160</key>
-		<string>ssh://github.com/bakercp/ofxJSONRPC.git</string>
-		<key>74F9385C-4CF3-402A-AB57-4B918B2FAA6B</key>
-		<string>ssh://github.com/SAIC/ofxZeroconf.git</string>
-		<key>7FFE1D1D-0E7F-4311-BD51-8BDDE4077C4B</key>
-		<string>ssh://github.com/bakercp/ofxSSLManager.git</string>
-		<key>A6091F57-9EF6-43EE-B5C9-C62F8354114B</key>
-		<string>ssh://github.com/bakercp/ofxLibavUtils.git</string>
-		<key>AB94019C-5903-4F45-AB0A-EB89A9DDAFAA</key>
-		<string>ssh://github.com/kibio/kibio-player.git</string>
-		<key>BD8FA77D-F76D-41E4-9401-870C77B4E6CE</key>
-		<string>ssh://github.com/bakercp/ofxHTTP.git</string>
-		<key>F7507D7E-660F-4F38-917F-5D3C0EE2BCDA</key>
-		<string>ssh://github.com/bakercp/ofxMediaType.git</string>
+		<key>2748E15AA716277C00A188031BFD897D4E502C68</key>
+		<string>github.com:themaw/ofxLivedrawEngine.git</string>
+		<key>2DE9C8846D9375EAACFABA8963120E8E7719BAF5</key>
+		<string>github.com:bakercp/openFrameworks.git</string>
+		<key>3CF3B4471C84DF2543AAA0AEAE2EC9F5FB1BB5AC</key>
+		<string>github.com:bakercp/ofxJSONRPC.git</string>
+		<key>40D6707AEDBFB16A66D56732AF5E9D46307A5558</key>
+		<string>github.com:kibio/kibio-player.git</string>
+		<key>4401B78D6A43C47BEBBD941DAE88FAC3E6BE9980</key>
+		<string>github.com:bakercp/ofxNetworkUtils.git</string>
+		<key>4751A59A84AA1748260DB7D35B3D4C0527040B97</key>
+		<string>github.com:bakercp/ofxUtils.git</string>
+		<key>5DB7C332A3A89035E93556A2A38BF414005BA671</key>
+		<string>github.com:bakercp/ofxJSON.git</string>
+		<key>6D6FDB373C9A9EB614FB047E30EC71CD5377F13C</key>
+		<string>github.com:bakercp/ofxSSLManager.git</string>
+		<key>6DBA07F83F7AF99DB5F116332E6446603283BF4C</key>
+		<string>github.com:bakercp/ofxHTTP.git</string>
+		<key>8AA7CC39969834A9E348F8D9433233D5E6FA89FB</key>
+		<string>github.com:bakercp/ofxLibavUtils.git</string>
+		<key>9D1F87E2E70B127E12489B80AFE4E8B72AD13F66</key>
+		<string>github.com:bakercp/ofxOscRouter.git</string>
+		<key>AECFBD561E27AA75142CC3760E6EF1774F14CD24</key>
+		<string>github.com:bakercp/ofxIpVideoGrabber.git</string>
+		<key>CA29DB320F881B85D76220FC5498A4D1FA4F037C</key>
+		<string>github.com:bakercp/ofxIO.git</string>
+		<key>CC64F4963C935629E4EEDB8221C0DA9B68D2313F</key>
+		<string>github.com:bakercp/ofxMediaType.git</string>
+		<key>CE427DFEAC7CF46E0343E32288BC15C14F0689BB</key>
+		<string>github.com:SAIC/ofxTaskQueue.git</string>
+		<key>F8FEB25E430BF95DD116CADF99EE1890FE95C05F</key>
+		<string>github.com:SAIC/ofxZeroconf.git</string>
+		<key>F9CE32C4CED75932BAB5348238DAD97BFBF1097A</key>
+		<string>github.com:bakercp/ofxVideoUtils.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>apps/kibio/kibio-player/kibio-player.xcodeproj/project.xcworkspace</string>
+	<string>kibio-player.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>0867A622-4183-42B4-96A9-30C7CD64BFE7</key>
-		<string>../../../../../addons/ofxIO</string>
-		<key>1F78F711-71FE-4A0D-AE40-470F4203962A</key>
-		<string>../../../../../addons/ofxJSON</string>
-		<key>22F76709-CB94-4FE0-AB46-5D026F5F1505</key>
-		<string>../../../../../addons/ofxLibmagic</string>
-		<key>45B414AD-06FD-4497-9C7A-E1A33FADFECF</key>
+		<key>2748E15AA716277C00A188031BFD897D4E502C68</key>
+		<string>../../../../../addons/ofxLivedrawEngine</string>
+		<key>2DE9C8846D9375EAACFABA8963120E8E7719BAF5</key>
 		<string>../../../../..</string>
-		<key>67CB084F-7E76-4F4A-AACA-FF634C637160</key>
+		<key>3CF3B4471C84DF2543AAA0AEAE2EC9F5FB1BB5AC</key>
 		<string>../../../../../addons/ofxJSONRPC</string>
-		<key>74F9385C-4CF3-402A-AB57-4B918B2FAA6B</key>
-		<string>../../../../../addons/ofxZeroconf</string>
-		<key>7FFE1D1D-0E7F-4311-BD51-8BDDE4077C4B</key>
-		<string>../../../../../addons/ofxSSLManager</string>
-		<key>A6091F57-9EF6-43EE-B5C9-C62F8354114B</key>
-		<string>../../../../../addons/ofxLibav</string>
-		<key>AB94019C-5903-4F45-AB0A-EB89A9DDAFAA</key>
+		<key>40D6707AEDBFB16A66D56732AF5E9D46307A5558</key>
 		<string>../..</string>
-		<key>BD8FA77D-F76D-41E4-9401-870C77B4E6CE</key>
+		<key>4401B78D6A43C47BEBBD941DAE88FAC3E6BE9980</key>
+		<string>../../../../../addons/ofxNetworkUtils</string>
+		<key>4751A59A84AA1748260DB7D35B3D4C0527040B97</key>
+		<string>../../../../../addons/ofxUtils</string>
+		<key>5DB7C332A3A89035E93556A2A38BF414005BA671</key>
+		<string>../../../../../addons/ofxJSON</string>
+		<key>6D6FDB373C9A9EB614FB047E30EC71CD5377F13C</key>
+		<string>../../../../../addons/ofxSSLManager</string>
+		<key>6DBA07F83F7AF99DB5F116332E6446603283BF4C</key>
 		<string>../../../../../addons/ofxHTTP</string>
-		<key>F7507D7E-660F-4F38-917F-5D3C0EE2BCDA</key>
+		<key>8AA7CC39969834A9E348F8D9433233D5E6FA89FB</key>
+		<string>../../../../../addons/ofxLibav</string>
+		<key>9D1F87E2E70B127E12489B80AFE4E8B72AD13F66</key>
+		<string>../../../../../addons/ofxOscRouter</string>
+		<key>AECFBD561E27AA75142CC3760E6EF1774F14CD24</key>
+		<string>../../../../../addons/ofxIpVideoGrabber</string>
+		<key>CA29DB320F881B85D76220FC5498A4D1FA4F037C</key>
+		<string>../../../../../addons/ofxIO</string>
+		<key>CC64F4963C935629E4EEDB8221C0DA9B68D2313F</key>
 		<string>../../../../../addons/ofxMediaType</string>
+		<key>CE427DFEAC7CF46E0343E32288BC15C14F0689BB</key>
+		<string>../../../../../addons/ofxTaskQueue</string>
+		<key>F8FEB25E430BF95DD116CADF99EE1890FE95C05F</key>
+		<string>../../../../../addons/ofxZeroconf</string>
+		<key>F9CE32C4CED75932BAB5348238DAD97BFBF1097A</key>
+		<string>../../../../../addons/ofxVideoUtils</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>ssh://github.com/kibio/kibio-player.git</string>
+	<string>github.com:kibio/kibio-player.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>45B414AD-06FD-4497-9C7A-E1A33FADFECF</string>
+	<string>40D6707AEDBFB16A66D56732AF5E9D46307A5558</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>AB94019C-5903-4F45-AB0A-EB89A9DDAFAA</string>
+			<string>2DE9C8846D9375EAACFABA8963120E8E7719BAF5</string>
+			<key>IDESourceControlWCCName</key>
+			<string>..</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>40D6707AEDBFB16A66D56732AF5E9D46307A5558</string>
 			<key>IDESourceControlWCCName</key>
 			<string>kibio-player</string>
 		</dict>
@@ -80,7 +112,7 @@
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>BD8FA77D-F76D-41E4-9401-870C77B4E6CE</string>
+			<string>6DBA07F83F7AF99DB5F116332E6446603283BF4C</string>
 			<key>IDESourceControlWCCName</key>
 			<string>ofxHTTP</string>
 		</dict>
@@ -88,7 +120,7 @@
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>0867A622-4183-42B4-96A9-30C7CD64BFE7</string>
+			<string>CA29DB320F881B85D76220FC5498A4D1FA4F037C</string>
 			<key>IDESourceControlWCCName</key>
 			<string>ofxIO</string>
 		</dict>
@@ -96,7 +128,15 @@
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>1F78F711-71FE-4A0D-AE40-470F4203962A</string>
+			<string>AECFBD561E27AA75142CC3760E6EF1774F14CD24</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ofxIpVideoGrabber</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>5DB7C332A3A89035E93556A2A38BF414005BA671</string>
 			<key>IDESourceControlWCCName</key>
 			<string>ofxJSON</string>
 		</dict>
@@ -104,7 +144,7 @@
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>67CB084F-7E76-4F4A-AACA-FF634C637160</string>
+			<string>3CF3B4471C84DF2543AAA0AEAE2EC9F5FB1BB5AC</string>
 			<key>IDESourceControlWCCName</key>
 			<string>ofxJSONRPC</string>
 		</dict>
@@ -112,7 +152,7 @@
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>A6091F57-9EF6-43EE-B5C9-C62F8354114B</string>
+			<string>8AA7CC39969834A9E348F8D9433233D5E6FA89FB</string>
 			<key>IDESourceControlWCCName</key>
 			<string>ofxLibav</string>
 		</dict>
@@ -120,15 +160,15 @@
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>22F76709-CB94-4FE0-AB46-5D026F5F1505</string>
+			<string>2748E15AA716277C00A188031BFD897D4E502C68</string>
 			<key>IDESourceControlWCCName</key>
-			<string>ofxLibmagic</string>
+			<string>ofxLivedrawEngine</string>
 		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>F7507D7E-660F-4F38-917F-5D3C0EE2BCDA</string>
+			<string>CC64F4963C935629E4EEDB8221C0DA9B68D2313F</string>
 			<key>IDESourceControlWCCName</key>
 			<string>ofxMediaType</string>
 		</dict>
@@ -136,7 +176,23 @@
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>7FFE1D1D-0E7F-4311-BD51-8BDDE4077C4B</string>
+			<string>4401B78D6A43C47BEBBD941DAE88FAC3E6BE9980</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ofxNetworkUtils</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>9D1F87E2E70B127E12489B80AFE4E8B72AD13F66</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ofxOscRouter</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>6D6FDB373C9A9EB614FB047E30EC71CD5377F13C</string>
 			<key>IDESourceControlWCCName</key>
 			<string>ofxSSLManager</string>
 		</dict>
@@ -144,17 +200,33 @@
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>74F9385C-4CF3-402A-AB57-4B918B2FAA6B</string>
+			<string>CE427DFEAC7CF46E0343E32288BC15C14F0689BB</string>
 			<key>IDESourceControlWCCName</key>
-			<string>ofxZeroconf</string>
+			<string>ofxTaskQueue</string>
 		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>45B414AD-06FD-4497-9C7A-E1A33FADFECF</string>
+			<string>4751A59A84AA1748260DB7D35B3D4C0527040B97</string>
 			<key>IDESourceControlWCCName</key>
-			<string>openFrameworks</string>
+			<string>ofxUtils</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>F9CE32C4CED75932BAB5348238DAD97BFBF1097A</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ofxVideoUtils</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>F8FEB25E430BF95DD116CADF99EE1890FE95C05F</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ofxZeroconf</string>
 		</dict>
 	</array>
 </dict>

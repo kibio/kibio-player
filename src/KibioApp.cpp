@@ -34,15 +34,15 @@ PlayerApp::PlayerApp()
     // Must register for all events before initializing server.
     ofSSLManager::registerAllEvents(this);
 
-    server.getPostRoute()->registerPostEvents(this);
-    server.getWebSocketRoute()->registerWebSocketEvents(this);
+//    server.getPostRoute()->registerPostEvents(this);
+//    server.getWebSocketRoute()->registerWebSocketEvents(this);
 }
 
 
 PlayerApp::~PlayerApp()
 {
-    server.getWebSocketRoute()->unregisterWebSocketEvents(this);
-    server.getPostRoute()->unregisterPostEvents(this);
+//    server.getWebSocketRoute()->unregisterWebSocketEvents(this);
+//    server.getPostRoute()->unregisterPostEvents(this);
 
     ofSSLManager::unregisterAllEvents(this);
 }
@@ -61,7 +61,7 @@ void PlayerApp::setup()
 
     HTTP::BasicJSONRPCServerSettings settings; // TODO: load from file.
     // settings.setUseSSL(true);
-    server.setup(settings);
+    //server.setup(settings);
 
     server.start();
     
@@ -139,7 +139,7 @@ void PlayerApp::draw()
     
     if(icons.find(lastIcon) != icons.end())
     {
-        ofPtr<ofImage> img = icons[lastIcon];
+        std::shared_ptr<ofImage> img = icons[lastIcon];
         
         ofPushMatrix();
         ofTranslate(ofGetWidth() / 2, ofGetHeight() / 2);

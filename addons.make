@@ -5,7 +5,9 @@ ofxJSONRPC
 ofxLibav
 ofxLibmagic
 ofxMediaType
+ofxNetworkUtils
 ofxOsc
 ofxSSLManager
 ofxXmlSettings
 ofxZeroconf
+ofxTaskQueue
